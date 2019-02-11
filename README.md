@@ -12,7 +12,7 @@ This is a list of the minimum behaviors to respect
 | l | convert integer into signed long int or unsigned long int |
 | ll | convert integer into signed long long int or unsigned long long int |
 | L | convert integer into a long double (signed or unsigned ?) |
-| ------:| ---------:|
+|||
 | "#" | Adds a prefixe to the following argument |
 ||      o : adds 0 before the conversion |
 ||      x,X : adds 0x,0X before the conversion |
