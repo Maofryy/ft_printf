@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
+# include <stdarg.h>
 
 typedef	struct	s_list
 {
@@ -94,5 +95,6 @@ char			*ft_strcapitalize(char *str);
 char			*ft_strjoinfree(char *s1, char *s2, int n);
 int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
+int			ft_printf(const char * restrict format, ...);
 
 #endif

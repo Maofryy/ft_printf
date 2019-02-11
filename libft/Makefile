@@ -20,7 +20,7 @@ OBJ_PATH = objs
 CPPFLAGS = -Iincludes
 
 LDFLAGS = -Llibft
-LDLIBS = -lft
+LDLIBS = -lftprintf
 
 NAME = libftprintf.a
 
@@ -89,6 +89,7 @@ SRC_NAME = ft_atoi.c \
 	   ft_sqrt.c \
 	   ft_strcapitalize.c \
 	   ft_strnjoinfree.c \
+	   ft_printf.c \
 	   get_next_line.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
