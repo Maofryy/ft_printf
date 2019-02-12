@@ -14,10 +14,16 @@
 
 #include <stdio.h>
 
-int main(void) {
-	int i;
-	i = ft_printf("%d %s", 1, "Hey");
-	//printf("%-10s n\nHey","Hey");
+int main(int ac, char **av) {
+	(void)ac;
+	(void)av;
+	t_flags fl;
+	fl = flags_init();
+	flags_print(fl);
+	fl.fl_sharp = 1;
+	ft_putchar('\n');
+	flags_print(fl);
+
 	return (0);
 }
 

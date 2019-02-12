@@ -58,8 +58,8 @@ else
 	@echo "$(GREEN)pas trouve$(WHITE)"
 endif
 
-run : 
-	@./$(NAME)
+run : ./$(NAME) 
+	@./$(NAME) ${ARGS}
 
 rerun : re run
 .PHONY : all clean fclean re lib

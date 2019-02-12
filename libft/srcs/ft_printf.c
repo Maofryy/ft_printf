@@ -3,38 +3,27 @@
 int ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
-	char c, *s;
-	int d;
-
+	char 	*s;
+	char	*fmt;
+	t_flags	fl;
+	int	count;
+	
 	va_start(ap, format);
+	count = 0;
+	fl = flags_init();
+	check_args(ap, format);
 	while (*format)
 	{
-		while (*format != '%') //or /0 ?
-		{
-			write(1, format, 1);
-			format++;
-		}
-		format++; //Handle %% ?
-
-		switch (*format++) {
-			case 's':              /* string */
-				s = va_arg(ap, char *);
-				ft_putstr(s);
-				break;
-			case 'd':              /* int */
-				d = va_arg(ap, int);
-				ft_putnbr(d);
-				break;
-			case 'c':              /* char */
-				/* need a cast here since va_arg only
-				   takes fully promoted types */
-				c = (char)va_arg(ap, int);
-				write(1, &c, 1);
-				break;
-		}
+		count += get_to_arg(&format);
+		fl = read_flags(&format);
+		fmt = read_format(&format);
+		s = conv_arg(fl, va_arg(ap, fmt));
+		ft_putstr(s);
+		count += ft_strlen(s);
 	}
 	va_end(ap);
-	return (0);
+	free_all(&s, &fmt, &fl);
+	return (count);
 }
 
 //add a convert() same as atoi base

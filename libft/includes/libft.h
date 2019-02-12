@@ -29,6 +29,23 @@ typedef	struct	s_list
 	struct s_list		*next;
 }				t_list;
 
+
+
+typedef struct	s_flags
+{
+	int	fl_sharp;
+	int	fl_zero;
+	int	fl_plus;
+	int	fl_minus;
+	int	fl_space;
+	int	fl_fw;
+	int	fl_pr;
+	int	fl_sc;
+	int	fl_cv;
+}				t_flags;
+
+t_flags			flags_init(void);
+void			flags_print(t_flags fl);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
