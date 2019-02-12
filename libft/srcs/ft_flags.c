@@ -26,3 +26,12 @@ void		flags_print(t_flags fl)
 		p++;
 	}
 }
+
+t_flags		read_flags(const char * restrict * p)
+{
+	t_flags fl;
+
+	fl = flags_init();
+	(void)p;
+	return (fl);
+}

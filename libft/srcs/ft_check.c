@@ -1,5 +1,6 @@
 #include "libft.h"
 
+#include <stdio.h>
 int		get_to_arg(const char * restrict * p)
 {
 	int i;
@@ -8,9 +9,17 @@ int		get_to_arg(const char * restrict * p)
 	while (**p && **p != '%')
 	{
 		ft_putchar(**p);
-		i++;
+		(**p) ? i++ : 0;
 		(*p)++;
 	}
+	(*p)++;
+	if (**p == '%')
+	{
+		ft_putchar(**p);
+		(*p)++;
+		i+= get_to_arg(p) + 1;
+	}
+	printf("\nint ret : %d\n", **p);
 	return (i);
 }
 

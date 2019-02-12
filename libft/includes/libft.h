@@ -45,6 +45,7 @@ typedef struct	s_flags
 }				t_flags;
 
 t_flags			flags_init(void);
+t_flags			read_flags(const char * restrict * p);
 void			flags_print(t_flags fl);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);

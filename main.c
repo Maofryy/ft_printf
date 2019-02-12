@@ -18,25 +18,25 @@ int ft_printf(const char * restrict format, ...)
 {
 	/*va_list ap;
 	char 	*s;
-	char	*fmt;
-	t_flags	fl;*/
+	char	*fmt;*/
+	t_flags	fl;
 	int	count;
 
 	//va_start(ap, format);
 	count = 0;
-	/*fl = flags_init();
-	if (check_args(format) != 1)
+	/*if (check_args(format) != 1)
 		return (die());*/
-	while (*format)
-	{
+	//while (*format)
+	//{
 		count += get_to_arg(&format);
-		/*fl = read_flags(&format);
-		fmt = read_format(&format);
+		count += get_to_arg(&format);
+		count += get_to_arg(&format);
+		fl = read_flags(&format);
+		/*fmt = read_format(&format);
 		s = conv_arg(fl, va_arg(ap, fmt));
 		ft_putstr(s);
 		count += ft_strlen(s);*/
-		format++;
-	}
+	//}
 	//va_end(ap);
 	//free_all(&s, &fmt, &fl);
 	return (count);
@@ -47,7 +47,8 @@ int main(int ac, char **av) {
 	(void)av;
 	int i;
 
-	i = ft_printf("12%34567");
+	i = ft_printf("%");
+	ft_putchar('\n');
 	ft_putnbr(i);
 	return (0);
 }
