@@ -14,15 +14,41 @@
 
 #include <stdio.h>
 
+int ft_printf(const char * restrict format, ...)
+{
+	/*va_list ap;
+	char 	*s;
+	char	*fmt;
+	t_flags	fl;*/
+	int	count;
+
+	//va_start(ap, format);
+	count = 0;
+	/*fl = flags_init();
+	if (check_args(format) != 1)
+		return (die());*/
+	while (*format)
+	{
+		count += get_to_arg(&format);
+		/*fl = read_flags(&format);
+		fmt = read_format(&format);
+		s = conv_arg(fl, va_arg(ap, fmt));
+		ft_putstr(s);
+		count += ft_strlen(s);*/
+		format++;
+	}
+	//va_end(ap);
+	//free_all(&s, &fmt, &fl);
+	return (count);
+}
+
 int main(int ac, char **av) {
 	(void)ac;
-	char * str;
+	(void)av;
+	int i;
 
-	str = ft_strdup(av[1]); 
-	ft_putstr(str);
-	get_to_arg((const char ** restrict)&str);
-	ft_putstr(str);
-
+	i = ft_printf("12%34567");
+	ft_putnbr(i);
 	return (0);
 }
 

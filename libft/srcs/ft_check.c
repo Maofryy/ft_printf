@@ -7,8 +7,9 @@ int		get_to_arg(const char * restrict * p)
 	i = 0;
 	while (**p && **p != '%')
 	{
+		ft_putchar(**p);
 		i++;
-		p++;
+		(*p)++;
 	}
 	return (i);
 }
