@@ -16,13 +16,12 @@
 
 int main(int ac, char **av) {
 	(void)ac;
-	(void)av;
-	t_flags fl;
-	fl = flags_init();
-	flags_print(fl);
-	fl.fl_sharp = 1;
-	ft_putchar('\n');
-	flags_print(fl);
+	char * str;
+
+	str = ft_strdup(av[1]); 
+	ft_putstr(str);
+	get_to_arg((const char ** restrict)&str);
+	ft_putstr(str);
 
 	return (0);
 }

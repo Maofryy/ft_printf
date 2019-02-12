@@ -11,7 +11,8 @@ int ft_printf(const char * restrict format, ...)
 	va_start(ap, format);
 	count = 0;
 	fl = flags_init();
-	check_args(ap, format);
+	if (check_args(format) != 1)
+		return (die());
 	while (*format)
 	{
 		count += get_to_arg(&format);

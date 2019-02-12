@@ -90,6 +90,7 @@ SRC_NAME = ft_atoi.c \
 	   ft_strcapitalize.c \
 	   ft_strnjoinfree.c \
 	   get_next_line.c \
+	   ft_check.c \
 	   ft_flags.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

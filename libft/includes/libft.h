@@ -113,5 +113,7 @@ char			*ft_strjoinfree(char *s1, char *s2, int n);
 int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
 int			ft_printf(const char * restrict format, ...);
+int			check_args(const char * restrict format);
+int			get_to_arg(const char * restrict *p);
 
 #endif
