@@ -8,8 +8,10 @@ int		get_to_arg(const char * restrict * p)
 	i = 0;
 	while (**p && **p != '%')
 	{
+		if (!**p)
+			return (i);
+		i++;
 		ft_putchar(**p);
-		(**p) ? i++ : 0;
 		(*p)++;
 	}
 	(*p)++;
@@ -19,7 +21,6 @@ int		get_to_arg(const char * restrict * p)
 		(*p)++;
 		i+= get_to_arg(p) + 1;
 	}
-	printf("\nint ret : %d\n", **p);
 	return (i);
 }
 
