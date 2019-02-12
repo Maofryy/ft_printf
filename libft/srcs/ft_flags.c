@@ -4,7 +4,7 @@ t_flags		flags_init(void)
 {
 	t_flags	fl;
 	int	*p;
-	
+
 	p = &fl.fl_sharp;
 	while (p <= &fl.fl_cv)
 	{
@@ -18,7 +18,7 @@ t_flags		flags_init(void)
 void		flags_print(t_flags fl)
 {
 	int	*p;
-	
+
 	p = &fl.fl_sharp;
 	while (p <= &fl.fl_cv)
 	{
@@ -32,6 +32,24 @@ t_flags		read_flags(const char * restrict * p)
 	t_flags fl;
 
 	fl = flags_init();
-	(void)p;
+	while (is_format_flag(*p, &fl))
+		(*p)++;
+	if (IS_NUM(*p))
+	{
+		fl.fw=ft_atoi(*p);
+		while (IS_NUM(*p))
+			(*p)++;
+	}
+	if (*p == '.')
+	{
+		(*p)++;
+		fl.fw=ft_atoi(*p);
+		while (IS_NUM(*p))
+			(*p)++;
+	}
+	if (is_conv_flag(p, fl))
+		(*p)++;
+	if (is_conv(*p, fl))
+		(*p)++;
 	return (fl);
 }

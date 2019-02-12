@@ -1,6 +1,6 @@
 #include "libft.h"
 
-#include <stdio.h>
+
 int		get_to_arg(const char * restrict * p)
 {
 	int i;
@@ -37,10 +37,10 @@ int	check_args(const char * restrict format)
 		}
 		//is format flags ?
 		//is int / field width
-		//is .int / precision 
+		//is .int / precision
 		//is h,l,L , then is h or l, then ok
 		//is cspdiouxXf ? strchr no null ?
-	
+
 		//if test fails, means not well formated and return 0.
 	}
 	return (1);
