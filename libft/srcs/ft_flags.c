@@ -32,24 +32,24 @@ t_flags		read_flags(const char * restrict * p)
 	t_flags fl;
 
 	fl = flags_init();
-	while (is_format_flag(*p, &fl))
+	while (is_format_flag(**p, &fl))
 		(*p)++;
-	if (IS_NUM(*p))
+	if (IS_NUM((int)**p))
 	{
-		fl.fw=ft_atoi(*p);
-		while (IS_NUM(*p))
+		fl.fl_fw=ft_atoi(*p);
+		while (IS_NUM((int)**p))
 			(*p)++;
 	}
-	if (*p == '.')
+	if (**p == '.')
 	{
 		(*p)++;
-		fl.fw=ft_atoi(*p);
-		while (IS_NUM(*p))
+		fl.fl_pr=ft_atoi(*p);
+		while (IS_NUM((int)**p))
 			(*p)++;
 	}
-	if (is_conv_flag(p, fl))
+	if (is_conv_flag(*p, &fl))
 		(*p)++;
-	if (is_conv(*p, fl))
+	if (is_conv(**p, &fl))
 		(*p)++;
 	return (fl);
 }

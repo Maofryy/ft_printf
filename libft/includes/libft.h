@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/04 11:44:00 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:03:10 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,12 @@ char			*ft_strcapitalize(char *str);
 char			*ft_strjoinfree(char *s1, char *s2, int n);
 int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
+
 int			ft_printf(const char * restrict format, ...);
 int			check_args(const char * restrict format);
 int			get_to_arg(const char * restrict *p);
+int			is_format_flag(const char c, t_flags *f);
+int			is_conv_flag(const char * restrict format, t_flags *f);
+int			is_conv(const char c, t_flags *f);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/05 14:00:40 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:18:23 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_printf(const char * restrict format, ...)
 	/*va_list ap;
 	char 	*s;
 	char	*fmt;*/
-	//t_flags	fl;
+	t_flags	fl;
 	int	count;
 
 	//va_start(ap, format);
@@ -29,7 +29,8 @@ int ft_printf(const char * restrict format, ...)
 	while (*format)
 	{
 		count += get_to_arg(&format);
-		//fl = read_flags(&format);
+		fl = read_flags(&format);
+		flags_print(fl);
 		/*fmt = read_format(&format);
 		s = conv_arg(fl, va_arg(ap, fmt));
 		ft_putstr(s);
@@ -45,9 +46,8 @@ int main(int ac, char **av) {
 	(void)av;
 	int i;
 
-	i = ft_printf("%12%3%%");
+	i = ft_printf("test : %#0+- 15.6hc");
 	ft_putchar('\n');
-	ft_putnbr(i);
 	return (0);
 }
 

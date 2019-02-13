@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/02/04 15:06:11 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/02/13 09:58:50 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ SRC_NAME = ft_atoi.c \
 	   ft_strnjoinfree.c \
 	   get_next_line.c \
 	   ft_check.c \
+	   ft_test.c \
 	   ft_flags.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
