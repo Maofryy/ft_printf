@@ -122,5 +122,8 @@ int			get_to_arg(const char * restrict *p);
 int			is_format_flag(const char c, t_flags *f);
 int			is_conv_flag(const char * restrict format, t_flags *f);
 int			is_conv(const char c, t_flags *f);
+char			*read_fmt(t_flags fl);
+char			*print_args(t_flags fl, va_list ap);
+char			*conv_arg(t_flags pl, va_list ap);
 
 #endif

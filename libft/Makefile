@@ -92,6 +92,7 @@ SRC_NAME = ft_atoi.c \
 	   get_next_line.c \
 	   ft_check.c \
 	   ft_test.c \
+	   ft_args.c \
 	   ft_flags.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

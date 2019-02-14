@@ -16,25 +16,24 @@
 
 int ft_printf(const char * restrict format, ...)
 {
-	/*va_list ap;
+	va_list ap;
 	char 	*s;
-	char	*fmt;*/
 	t_flags	fl;
 	int	count;
 
-	//va_start(ap, format);
+	va_start(ap, format);
 	count = 0;
-	/*if (check_args(format) != 1)
+	/*if (check_args(format) != )
 		return (die());*/
 	while (*format)
 	{
 		count += get_to_arg(&format);
+		if (*format == '\0')
+			return (count);
 		fl = read_flags(&format);
-		flags_print(fl);
-		/*fmt = read_format(fl);
-		s = conv_arg(fl, va_arg(ap, fmt));
+		s = conv_arg(fl, ap);
 		ft_putstr(s);
-		count += ft_strlen(s);*/
+		count += ft_strlen(s);
 	}
 	//va_end(ap);
 	//free_all(&s, &fmt, &fl);
@@ -46,8 +45,10 @@ int main(int ac, char **av) {
 	(void)av;
 	int i;
 
-	i = ft_printf("test : %#0 15.6hc");
-	ft_putchar('\n');
+	//i = ft_printf("test : %d %d %d", 2, 3, 7);
+	char str[] = "HeyHey";
+	i = ft_printf(str);
+	ft_putnbr(i);
 
 	return (0);
 }
