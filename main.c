@@ -46,8 +46,8 @@ int main(int ac, char **av) {
 	int i;
 
 	//i = ft_printf("test : %d %d %d", 2, 3, 7);
-	char str[] = "HeyHey";
-	i = ft_printf(str);
+	//char str[] = "HeyHey";
+	i = ft_printf("%c %d %s", 'Y', 12345678, "Hey");
 	ft_putnbr(i);
 
 	return (0);
