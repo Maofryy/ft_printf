@@ -1,0 +1,5 @@
+Change get to arg using strchr
+	if didnt find, print format and return the len
+	if found, print with the length between the two adresses with a putnstr ?
+Change the function handling format with char ** and not const char * restrict sht, cast from main function
+
