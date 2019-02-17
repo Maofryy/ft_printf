@@ -8,12 +8,12 @@ int		get_to_arg(const char * restrict * p)
 	i = 0;
 	while (**p && **p != '%')
 	{
-		if (!**p)
-			return (i);
 		i++;
 		ft_putchar(**p);
 		(*p)++;
 	}
+	if (!**p)
+		return (i);
 	(*p)++;
 	if (**p == '%')
 	{

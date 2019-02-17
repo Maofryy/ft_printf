@@ -28,8 +28,9 @@ int ft_printf(const char * restrict format, ...)
 	while (*format)
 	{
 		count += get_to_arg(&format);
-		if (*format == '\0')
-			return (count);
+		if (!*format)
+			break;
+		ft_putstr("continuing");
 		fl = read_flags(&format);
 		s = conv_arg(fl, ap);
 		ft_putstr(s);
@@ -46,9 +47,7 @@ int main(int ac, char **av) {
 	int i;
 
 	//i = ft_printf("test : %d %d %d", 2, 3, 7);
-	//char str[] = "HeyHey";
-	i = ft_printf("%c %d %s", 'Y', 12345678, "Hey");
-	ft_putnbr(i);
+	i = ft_printf("HeyHeyheyi ");
 
 	return (0);
 }
