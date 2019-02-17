@@ -30,13 +30,12 @@ int ft_printf(const char * restrict format, ...)
 		count += get_to_arg(&format);
 		if (!*format)
 			break;
-		ft_putstr("continuing");
 		fl = read_flags(&format);
 		s = conv_arg(fl, ap);
 		ft_putstr(s);
 		count += ft_strlen(s);
 	}
-	//va_end(ap);
+	va_end(ap);
 	//free_all(&s, &fmt, &fl);
 	return (count);
 }
@@ -47,7 +46,16 @@ int main(int ac, char **av) {
 	int i;
 
 	//i = ft_printf("test : %d %d %d", 2, 3, 7);
-	i = ft_printf("HeyHeyheyi ");
+	if (ac == 1)
+		i = ft_printf("Insert a format and arg to print");
+	else if (ac == 2)
+		i = ft_printf(av[1]);
+	else if (ac == 3)
+		i = ft_printf(av[1], av[2]);
+	else if (ac == 4)
+		i = ft_printf(av[1], av[2], av[3]);
+	else if (ac == 5)
+		i = ft_printf(av[1], av[2], av[3], av[4]);
 
 	return (0);
 }
