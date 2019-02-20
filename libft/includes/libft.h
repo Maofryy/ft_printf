@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/13 11:03:10 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/02/20 10:21:53 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ typedef struct	s_flags
 	int	fl_cv;
 }				t_flags;
 
-t_flags			flags_init(void);
-t_flags			read_flags(const char * restrict * p);
-void			flags_print(t_flags fl);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
@@ -117,13 +114,17 @@ int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
 
 int			ft_printf(const char * restrict format, ...);
-int			check_args(const char * restrict format);
-int			get_to_arg(const char * restrict *p);
-int			is_format_flag(const char c, t_flags *f);
-int			is_conv_flag(const char * restrict format, t_flags *f);
-int			is_conv(const char c, t_flags *f);
+int			check_args(char * format);
+int			get_to_arg(char **p);
+int			is_format_flag(char c, t_flags *f);
+int			is_conv_flag(char * format, t_flags *f);
+int			is_conv(char c, t_flags *f);
 char			*read_fmt(t_flags fl);
 char			*print_args(t_flags fl, va_list ap);
 char			*conv_arg(t_flags pl, va_list ap);
+t_flags			flags_init(void);
+t_flags			read_flags(char ** p);
+void			flags_print(t_flags fl);
+void			ft_putnstr(char *str, int n);
 
 #endif
