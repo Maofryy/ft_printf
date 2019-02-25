@@ -1,9 +1,17 @@
 #include "libft.h"
 
-
-int		get_to_arg(const char * restrict * p)
+void	ft_putnstr(char * str, int n)
 {
 	int i;
+
+	i = 0;
+	while (i++ < n)
+		ft_putchar(str[i]);
+}
+
+int		get_to_arg(char ** p)
+{
+	/*int i;
 
 	i = 0;
 	while (**p && **p != '%')
@@ -21,10 +29,32 @@ int		get_to_arg(const char * restrict * p)
 		(*p)++;
 		i+= get_to_arg(p) + 1;
 	}
-	return (i);
+	return (i);*/
+	char *s;
+	int ret;
+
+	s = ft_strchr(*p, '%');
+	ft_putstr("la?");
+	if (s == NULL)
+		return (0);
+	else
+	{
+		ret = (int)(s - *p);
+		*p = s;
+	}
+	//Handle the double %
+	/*
+	if (*p[1] == '%')
+	{
+		then return (get_to_arg(&(*p)[2]) + ret + 1);
+	}
+	*/
+	return (ret);
 }
 
-int	check_args(const char * restrict format)
+
+
+int	check_args(char * format)
 {
 	// Check if number of args is okay, use va_copy and count, cant do that with varidic function actually
 	while (*format)

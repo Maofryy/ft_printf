@@ -27,7 +27,7 @@ void		flags_print(t_flags fl)
 	}
 }
 
-t_flags		read_flags(const char * restrict * p)
+t_flags		read_flags(char ** p)
 {
 	t_flags fl;
 
@@ -47,7 +47,7 @@ t_flags		read_flags(const char * restrict * p)
 		while (IS_NUM((int)**p))
 			(*p)++;
 	}
-	if (is_conv_flag(*p, &fl))
+	if (is_conv_flag((char *)*p, &fl))
 		(*p)++;
 	if (is_conv(**p, &fl))
 		(*p)++;

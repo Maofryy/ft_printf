@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/13 11:54:12 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/02/20 10:22:54 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 int ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
-	char 	*s;
-	t_flags	fl;
+	//char 	*s;
+	//t_flags	fl;
 	int	count;
+	int ret;
 
 	va_start(ap, format);
 	count = 0;
@@ -27,13 +28,19 @@ int ft_printf(const char * restrict format, ...)
 		return (die());*/
 	while (*format)
 	{
-		count += get_to_arg(&format);
+		if ((ret = get_to_arg((char **)&format)) == 0)
+		{
+			ft_putstr(format);
+			return (count);
+		}
+		ft_putnstr((char *)format, ret);
+		count += ret;
 		if (!*format)
 			break;
-		fl = read_flags(&format);
+		/*fl = read_flags((char **)&format);
 		s = conv_arg(fl, ap);
 		ft_putstr(s);
-		count += ft_strlen(s);
+		count += ft_strlen(s);*/
 	}
 	va_end(ap);
 	//free_all(&s, &fmt, &fl);
@@ -41,8 +48,8 @@ int ft_printf(const char * restrict format, ...)
 }
 
 int main(int ac, char **av) {
-	(void)ac;
-	(void)av;
+	//(void)ac;
+	//(void)av;
 	int i;
 
 	//i = ft_printf("test : %d %d %d", 2, 3, 7);
@@ -56,6 +63,6 @@ int main(int ac, char **av) {
 		i = ft_printf(av[1], av[2], av[3]);
 	else if (ac == 5)
 		i = ft_printf(av[1], av[2], av[3], av[4]);
-
+	
 	return (0);
 }

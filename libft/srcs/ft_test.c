@@ -6,13 +6,13 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:53:23 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/13 11:53:24 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/02/20 09:53:21 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_format_flag(const char c, t_flags *f)
+int		is_format_flag(char c, t_flags *f)
 {	
 	const char str[] = "#0+- ";
 	char *s;
@@ -27,7 +27,7 @@ int		is_format_flag(const char c, t_flags *f)
 	return (1);
 }
 
-int		is_conv_flag(const char *restrict format, t_flags *f)
+int		is_conv_flag(char *format, t_flags *f)
 {
 	if (*format == 'h')
 	{
@@ -50,7 +50,7 @@ int		is_conv_flag(const char *restrict format, t_flags *f)
 	return (1);
 }
 
-int		is_conv(const char c, t_flags *f)
+int		is_conv(char c, t_flags *f)
 {
 	const char str[] = "cspdouxXf";
 	char *s;
