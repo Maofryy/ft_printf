@@ -22,6 +22,8 @@
 # include <sys/uio.h>
 # include <stdarg.h>
 # define IS_NUM(x) (x >= '0' && x <= '9')
+# define STR_CONV "cspdouxXf"
+# define STR_FLAGS "#0-+ "
 
 
 typedef	struct	s_list
