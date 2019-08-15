@@ -64,5 +64,5 @@ int main(int ac, char **av) {
 	else if (ac == 5)
 		i = ft_printf(av[1], av[2], av[3], av[4]);
 	
-	return (0);
+	return (i);
 }

@@ -31,9 +31,10 @@ char	*print_arg(t_flags fl, va_list ap)
 
 char	*conv_arg(t_flags fl, va_list ap)
 {
-	char	*fmt;
+//	char	*fmt;
 
 	//be careful and malloc correctly the void pointer
-	fmt = read_fmt(fl);
+	//fmt = read_fmt(fl);
+	
 	return (print_arg(fl, ap));
 }
