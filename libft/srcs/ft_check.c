@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/26 13:40:46 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/08/26 14:29:35 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+
 #include "libft.h"
 
 void	ft_putnstr(char * str, int n)
@@ -5,36 +19,25 @@ void	ft_putnstr(char * str, int n)
 	int i;
 
 	i = 0;
-	while (i++ < n)
-		ft_putchar(str[i]);
+	while (i < n)
+		ft_putchar(str[i++]);
 }
 
 int		get_to_arg(char ** p)
 {
-	/*int i;
-
-	i = 0;
-	while (**p && **p != '%')
-	{
-		i++;
-		ft_putchar(**p);
-		(*p)++;
-	}
-	if (!**p)
-		return (i);
-	(*p)++;
-	if (**p == '%')
-	{
-		ft_putchar(**p);
-		(*p)++;
-		i+= get_to_arg(p) + 1;
-	}
-	return (i);*/
 	char *s;
 	int ret;
 
 	s = ft_strchr(*p, '%');
-	ft_putstr("la?");
+	ft_putnstr(*p, (int)(s - *p));
+	ft_putstr("\nDebug1\n");
+	//Handle the double %
+	if (s[1] == '%')
+	{
+		//ft_putnstr(*p, (int)(*p - s));
+		*p = s + 2;
+		return (get_to_arg(p));
+	}
 	if (s == NULL)
 		return (0);
 	else
@@ -42,13 +45,6 @@ int		get_to_arg(char ** p)
 		ret = (int)(s - *p);
 		*p = s;
 	}
-	//Handle the double %
-	/*
-	if (*p[1] == '%')
-	{
-		then return (get_to_arg(&(*p)[2]) + ret + 1);
-	}
-	*/
 	return (ret);
 }
 
