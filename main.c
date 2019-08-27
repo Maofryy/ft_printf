@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/26 14:29:41 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/27 11:46:13 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 int ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
-	/*char 	*s;
-	t_flags	fl;*/
+	char 	*s;
+	t_flags	fl;
 	int	count;
 	int ret;
 
@@ -32,17 +32,17 @@ int ft_printf(const char * restrict format, ...)
 		//ft_putchar('\n');
 		if ((ret = get_to_arg((char **)&format)) == 0)
 		{
-			ft_putstr(format);
+			ft_putstr((char *)format);
 			return (count);
 		}
 		//ft_putnstr((char *)format - ret, ret);
 		count += ret;
 		if (!*format)
 			break;
-		/*fl = read_flags((char **)&format);
+		fl = read_flags((char **)&format);
 		s = conv_arg(fl, ap);
 		//ft_putstr(s);
-		count += ft_strlen(s);*/
+		count += ft_strlen(s);
 	}
 	va_end(ap);
 	//free_all(&s, &fmt, &fl);
@@ -55,7 +55,7 @@ int main(int ac, char **av) {
 	//int i;
 
 	//i = ft_printf("01234%d", 2);
-	ft_printf("Hey %% Hey");
+	ft_printf("Hey %d Hey", 2);
 	/*if (ac == 1)
 		i = ft_printf("Insert a format and arg to print");
 	else if (ac == 2)
