@@ -35,13 +35,13 @@ int ft_printf(const char * restrict format, ...)
 			ft_putstr((char *)format);
 			return (count);
 		}
-		//ft_putnstr((char *)format - ret, ret);
+		ft_putnstr((char *)format - ret, ret - 1);
 		count += ret;
 		if (!*format)
 			break;
 		fl = read_flags((char **)&format);
 		s = conv_arg(fl, ap);
-		//ft_putstr(s);
+		ft_putstr(s);
 		count += ft_strlen(s);
 	}
 	va_end(ap);
@@ -55,7 +55,7 @@ int main(int ac, char **av) {
 	//int i;
 
 	//i = ft_printf("01234%d", 2);
-	ft_printf("Hey %d Hey", 2);
+	ft_printf("This is %d int\n%%\n", 1);
 	/*if (ac == 1)
 		i = ft_printf("Insert a format and arg to print");
 	else if (ac == 2)

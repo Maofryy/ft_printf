@@ -35,6 +35,6 @@ char	*conv_arg(t_flags fl, va_list ap)
 
 	//be careful and malloc correctly the void pointer
 	//fmt = read_fmt(fl);
-	
+	//ft_putstr(print_arg(fl, ap));
 	return (print_arg(fl, ap));
 }
