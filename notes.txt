@@ -1,7 +1,3 @@
-Change get to arg using strchr
-	if didnt find, print format and return the len
-	if found, print with the length between the two adresses with a putnstr ?
-Change the function handling format with char ** and not const char * restrict sht, cast from main function
 Add itoa_base, itoA_base and lltoa_base, then add in print args, maybe find a better way than this one, like a function pointer.
 When all the converision the char* done,
 	work on the h,hh,l,ll and L flags, just need some casting imo

@@ -40,6 +40,7 @@ int ft_printf(const char * restrict format, ...)
 		if (!*format)
 			break;
 		fl = read_flags((char **)&format);
+		flags_print(fl);
 		s = conv_arg(fl, ap);
 		ft_putstr(s);
 		count += ft_strlen(s);
@@ -52,11 +53,11 @@ int ft_printf(const char * restrict format, ...)
 int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
-	//int i;
+	int i;
 
 	//i = ft_printf("01234%d", 2);
-	ft_printf("This is %d int\n%%\n", 1);
-	/*if (ac == 1)
+	//ft_printf("This is %d int\n%%\n", 1);
+	if (ac == 1)
 		i = ft_printf("Insert a format and arg to print");
 	else if (ac == 2)
 		i = ft_printf(av[1]);
@@ -67,6 +68,6 @@ int main(int ac, char **av) {
 	else if (ac == 5)
 		i = ft_printf(av[1], av[2], av[3], av[4]);
 	else
-		i = 0;*/
+		i = 0;
 	return (0);
 }
