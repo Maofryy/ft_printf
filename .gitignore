@@ -42,6 +42,9 @@
 *.idb
 *.pdb
 
+# Vi cache
+*.swp
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd

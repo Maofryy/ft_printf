@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 13:40:46 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/27 11:46:11 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/28 11:34:16 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ int		get_to_arg(char ** p)
 
 	s = ft_strchr(*p, '%');
 	//ft_putnstr(*p, (int)(s - *p));
-	//ft_putstr("\nDebug1\n");
 	//Handle the double %
 	if (s == NULL)
-		return (0);
+		return (-1);
 	else if (s[1] == '%')
 	{
 		ft_putnstr(*p, (int)(s - *p + 1));

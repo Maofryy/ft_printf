@@ -20,7 +20,7 @@ char	*print_arg(t_flags fl, va_list ap)
 	if (fl.fl_cv == 1)
 		return (print_char((char)va_arg(ap, int)));
 	else if (fl.fl_cv == 2)
-		return ((char *)va_arg(ap, char *));
+		return (va_arg(ap, char *));
 	else if (fl.fl_cv == 3)
 		return ((char *)va_arg(ap, void *));
 	else if (fl.fl_cv == 4)
