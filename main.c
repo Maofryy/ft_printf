@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/28 11:34:18 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/29 10:27:45 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,12 @@ int main(int ac, char **av) {
 	(void)av;
 	int i;
 
-	i = ft_printf("0123%s%c%d","456", '7', 89);
+	char str[20];
+	float n = 233.007;
+	ft_ftoa(n, str, 4);
+	i = ft_printf("\n\"%s\"\n", str);
+	
+	//i = ft_printf("0123%s%c%d","456", '7', 89);
 	//ft_printf("This is %d int\n%%\n", 1);
 	/*if (ac == 1)
 		i = ft_printf("Insert a format and arg to print");

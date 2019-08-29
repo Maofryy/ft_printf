@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/20 10:21:53 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/29 10:22:07 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,5 +128,6 @@ t_flags			flags_init(void);
 t_flags			read_flags(char ** p);
 void			flags_print(t_flags fl);
 void			ft_putnstr(char *str, int n);
+void			ft_ftoa(float n, char *str, int after);
 
 #endif
