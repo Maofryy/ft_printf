@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:53:23 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/27 11:37:19 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:03:05 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int		is_format_flag(char c, t_flags *f)
 {	
-	const char str[] = "#0+- ";
+	//const char str[] = "#0+- ";
 	char *s;
 	int		*p;
 
 	p = &f->fl_sharp;
 
-	s = ft_strchr(str, c);
+	s = ft_strchr(STR_FLAGS, c);
 	if (s == NULL)
 		return (0);
-	*(p + (int)(s - str)) = 1;
+	*(p + (int)(s - STR_FLAGS)) = 1;
 	return (1);
 }
 
@@ -52,14 +52,14 @@ int		is_conv_flag(char *format, t_flags *f)
 
 int		is_conv(char c, t_flags *f)
 {
-	const char str[] = "cspdouxXf";
+	//const char str[] = "cspdouxXf";
 	char *s;
-	s = ft_strchr(str, c);
+	s = ft_strchr(STR_CONV, c);
 	if (s == NULL)
 		return (0);
 	if (c == 'i')
 		f->fl_cv = 4;
 	else
-		f->fl_cv = s - str + 1;
+		f->fl_cv = s - STR_CONV + 1;
 	return (1);
 }

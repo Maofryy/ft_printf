@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/29 10:27:45 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:07:46 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,13 @@ int ft_printf(const char * restrict format, ...)
 			ft_putstr((char *)format);
 			return (count);
 		}
+		//ft_putstr(format);
 		ft_putnstr((char *)format - ret - 1, ret);
 		count += ret;
 		if (!*format)
-		{
-			ft_putstr("Do we break ?\n");
 			break;
-		}
 		fl = read_flags((char **)&format);
-		//flags_print(fl);
+		flags_print(fl);
 		s = conv_arg(fl, ap);
 		ft_putstr(s);
 		count += ft_strlen(s);
@@ -51,15 +49,22 @@ int ft_printf(const char * restrict format, ...)
 	return (count);
 }
 
+#include <stdio.h>
+
 int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
 	int i;
 
-	char str[20];
-	float n = 233.007;
-	ft_ftoa(n, str, 4);
-	i = ft_printf("\n\"%s\"\n", str);
+	char str[30];
+	//float n = 233.123456789;
+	float sep = (float)22/9;
+	//float sep2 = (float)4/9;
+	ft_dtoa(sep, str, 6);
+	//printf("printf ret : %.12f\n", sep);
+	i = ft_printf("Hey try this float : %#4.4s\n", "$float");
+	
+	//printf("%f", ft_fpower((float)10,-4));
 	
 	//i = ft_printf("0123%s%c%d","456", '7', 89);
 	//ft_printf("This is %d int\n%%\n", 1);

@@ -6,11 +6,25 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:33:55 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/29 10:25:33 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/08/29 14:44:25 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+float ft_round(float n, int after)
+{
+	float	fpart;
+	float	sep;
+	int		ipart;
+
+	sep = (float)4/9;
+	ipart = (n - (int)n);
+	fpart = ipart * ft_power(10, after);
+	if ((fpart - (int)fpart) > sep)
+		fpart++;
+	return ((float)ipart + fpart*ft_dpower(10, -after));
+}
 
 void ft_reverse_str(char *str, int len) 
 { 
@@ -46,11 +60,11 @@ int	ft_itoa_d(int n, char *str, int d)
 	str[i] = '\0'; 
 	return i;
 }
-
-void	ft_ftoa(float n, char *str, int after)
+#include <stdio.h>
+void	ft_dtoa(float n, char *str, int after)
 {
 	int		ipart;
-	float	fpart;
+	double	fpart;
 	int		i;
 
 	ipart = (int)n;
@@ -59,7 +73,10 @@ void	ft_ftoa(float n, char *str, int after)
 	if (after != 0)
 	{
 		str[i] = '.';
+		printf("fpart : %.15f\n", (float)4/9);
+		printf("power : %ld\n", ft_power(10, after));
 		fpart = fpart * ft_power(10, after);
+		printf("fpart : %f\n", fpart);
 		ft_itoa_d( (int)fpart, str + i + 1, after);
 	}
 }

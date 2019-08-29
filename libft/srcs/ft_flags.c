@@ -20,6 +20,7 @@ void		flags_print(t_flags fl)
 	int	*p;
 
 	p = &fl.fl_sharp;
+	printf("\n");
 	while (p <= &fl.fl_cv)
 	{
 		printf("Character #%ld = %d \n", p - &fl.fl_sharp, *p);
