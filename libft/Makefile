@@ -6,16 +6,16 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/08/29 10:23:58 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/09/01 13:50:34 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_PATH = srcs 
+SRC_PATH = ./srcs
 
-OBJ_PATH = objs
+OBJ_PATH = ./objs
 
 CPPFLAGS = -Iincludes
 
@@ -110,7 +110,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
 
-$(OBJ_PATH)/%.o: srcs/%.c
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 	@echo "$(GREEN)$@$(WHITE)"

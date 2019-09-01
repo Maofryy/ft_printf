@@ -27,18 +27,13 @@ WHITE = \033[0m
 all : $(NAME)
 
 $(NAME) : lib $(OBJ) 
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) $(OBJ) -o $@
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) $(OBJ) -o $@ && echo "$(GREEN)$@ compiled$(WHITE)"
 
-%.o: %.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
-	@echo "$(GREEN)$@$(WHITE)"
+./%.o: ./%.c
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< && echo "$(GREEN)$@$(WHITE)"
 
 lib : 
-ifeq ($(findstring libftprintf.a,$(shell ls libft)),$(LDLIB))
-	@echo "$(GREEN)libft already compiled.$(WHITE)"
-else
-	@make -C libft re && echo "$(GREEN)libft compiled successfully$(WHITE)"
-endif
+	@make -C libft
 
 clean :
 	@make -C libft clean
@@ -62,7 +57,7 @@ run : ./$(NAME)
 	@./$(NAME) ${ARGS}
 
 rerun : re run
-.PHONY : all clean fclean re lib
+.PHONY : $(NAME) clean fclean
 
 norme:
 	norminette $(SRC)
