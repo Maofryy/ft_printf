@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:23:26 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 12:26:54 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/09 14:42:37 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int ft_printf(const char * restrict format, ...)
 		if (!*format)
 			break;
 		fl = read_flags((char **)&format);
-		flags_print(fl);
+		//flags_print(fl);
 		s = conv_arg(fl, ap);
 		ft_putstr(s);
 		count += ft_strlen(s);

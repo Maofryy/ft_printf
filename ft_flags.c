@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:48:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 12:49:07 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/09 14:17:50 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_flags		flags_init(void)
 	p = &fl.fl_sharp;
 	while (p <= &fl.fl_cv)
 	{
-		*p = 0;
+		*p = -1;
 		p++;
 	}
 	return (fl);
