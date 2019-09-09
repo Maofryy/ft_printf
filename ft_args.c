@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:49:41 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 16:45:23 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/09 17:51:56 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 		str = ft_itoa((va_arg(ap, int)));
 		return (str);
 	}
-	else if (fl.fl_cv == 3)
+	/*else if (fl.fl_cv == 5)
+	{
+		str = ft_putnbr((void *)va_arg(ap, unsigned char), str);
+		return (str);
+	}
+	else if (fl.fl_cv == 6)
 	{
 		ft_ret_addr_str((void *)va_arg(ap, void *), str);
 		return (str);
 	}
-	else if (fl.fl_cv == 3)
-	{
-		ft_ret_addr_str((void *)va_arg(ap, void *), str);
-		return (str);
-	}
-	else if (fl.fl_cv == 3)
+	else if (fl.fl_cv == 7)
 	{
 		ft_ret_addr_str((void *)va_arg(ap, void *), str);
 		return (str);
@@ -68,7 +68,7 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 	{
 		ft_ftoa(va_arg(ap, double), str, fl.fl_pr);
 		return (str);
-	}
+	}*/
 	else
 		return (NULL);
 }

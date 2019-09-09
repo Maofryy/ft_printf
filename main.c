@@ -6,12 +6,69 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 17:29:42 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/09 17:52:58 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
+
+#include <stdlib.h>
+
+char	*ft_strcat1(char *str, char c)
+{
+	char *tmp;
+	int i = 0;
+	while (str[i])
+		i++;
+	tmp = malloc(sizeof(char) *(i + 2));
+	i = 0;
+	//write(1,&c,1);
+	while (str[i])
+	{
+		tmp[i] = str[i];
+		i++;
+	}
+	tmp[i] = c;
+	tmp[i + 1] = '\0';
+	free(str);
+	return (tmp);
+}
+
+void		ft_strnbrbase(int value, int base, char *str)
+{
+	if (value == -2147483648)
+	{
+		ft_strnbrbase(-21474, base, str);
+		ft_strnbrbase(83648, base, str);
+	}
+	if (value < 0)
+		value *= -1;
+	if (value < base)
+	{
+		if (base <= 10)
+		{
+			str = ft_strcat1(str, '0' + value);
+			printf("%c\n",'0' + value);
+		}
+		else
+			str = ft_strcat1(str, 'A' + value - 10);
+	}
+	else
+	{
+		ft_strnbrbase(value / base, base, str);
+		ft_strnbrbase(value % base, base, str);
+	}
+}
+
+char        *ft_itoa_base(int value, int base)
+{
+	char *str;
+
+	str = malloc(sizeof(char) * 2);
+	ft_strnbrbase(value, base, str);
+	return (str);
+}
 
 int main(int ac, char **av) {
 	(void)ac;
@@ -26,41 +83,43 @@ int main(int ac, char **av) {
 	//ft_dtoa(sep, str, 6);
 	//printf("printf ret : %.12f\n", sep);
 
-	ft_putstr(ft_itoa((unsigned char)'H'));
-	/*printf("Hey try this char : %c\n", *str);
-	printf("Hey try this string : %s\n", str);
-	printf("Hey try this pointer : %p\n", p);
-	printf("Hey try this int : %d\n", (int)sep);
-	printf("Hey try this float : %f\n", sep);
-	printf("Hey try this an unsigned octet : %o\n", *str);
-	printf("Hey try this an unsigned int : %u\n", (unsigned int)sep);
-	printf("Hey try this an unsigned hexa int : %x\n", (unsigned int)sep);
-	printf("Hey try this an unsigned HEXA int  : %X\n", (unsigned int)sep);
-	
-	ft_printf("ft :Hey try this char : %c\n", *str);
-	ft_printf("ft :Hey try this string : %s\n", str);
-	ft_printf("ft :Hey try this pointer : %p\n", p);
-	ft_printf("ft :Hey try this int : %d\n", (int)sep);
-	ft_printf("ft :Hey try this float : %f\n", sep);
-	ft_printf("ft :Hey try this an unsigned octet : %o\n", *str);
-	ft_printf("ft :Hey try this an unsigned int : %u\n", (unsigned int)sep);
-	ft_printf("ft :Hey try this an unsigned hexa int : %x\n", (unsigned int)sep);
-	ft_printf("ft :Hey try this an unsigned HEXA int  : %X\n", (unsigned int)sep);
-	*/
-	
+	unsigned char o = 'H';
+
+	ft_putstr(ft_itoa_base((int)o, 8));
+			/*printf("Hey try this char : %c\n", *str);
+			  printf("Hey try this string : %s\n", str);
+			  printf("Hey try this pointer : %p\n", p);
+			  printf("Hey try this int : %d\n", (int)sep);
+			  printf("Hey try this float : %f\n", sep);
+			  printf("Hey try this an unsigned octet : %o\n", *str);
+			  printf("Hey try this an unsigned int : %u\n", (unsigned int)sep);
+			  printf("Hey try this an unsigned hexa int : %x\n", (unsigned int)sep);
+			  printf("Hey try this an unsigned HEXA int  : %X\n", (unsigned int)sep);
+
+			  ft_printf("ft :Hey try this char : %c\n", *str);
+			  ft_printf("ft :Hey try this string : %s\n", str);
+			  ft_printf("ft :Hey try this pointer : %p\n", p);
+			  ft_printf("ft :Hey try this int : %d\n", (int)sep);
+			  ft_printf("ft :Hey try this float : %f\n", sep);
+			  ft_printf("ft :Hey try this an unsigned octet : %o\n", *str);
+			  ft_printf("ft :Hey try this an unsigned int : %u\n", (unsigned int)sep);
+			  ft_printf("ft :Hey try this an unsigned hexa int : %x\n", (unsigned int)sep);
+			  ft_printf("ft :Hey try this an unsigned HEXA int  : %X\n", (unsigned int)sep);
+			  */
+
 	//i = ft_printf("0123%s%c%d","456", '7', 89);
 	//ft_printf("This is %d int\n%%\n", 1);
 	/*if (ac == 1)
-		i = ft_printf("Insert a format and arg to print");
-	else if (ac == 2)
-		i = ft_printf(av[1]);
-	else if (ac == 3)
-		i = ft_printf(av[1], av[2]);
-	else if (ac == 4)
-		i = ft_printf(av[1], av[2], av[3]);
-	else if (ac == 5)
-		i = ft_printf(av[1], av[2], av[3], av[4]);
-	else
-		i = 0;*/
+	  i = ft_printf("Insert a format and arg to print");
+	  else if (ac == 2)
+	  i = ft_printf(av[1]);
+	  else if (ac == 3)
+	  i = ft_printf(av[1], av[2]);
+	  else if (ac == 4)
+	  i = ft_printf(av[1], av[2], av[3]);
+	  else if (ac == 5)
+	  i = ft_printf(av[1], av[2], av[3], av[4]);
+	  else
+	  i = 0;*/
 	return (0);
 }
