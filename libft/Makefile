@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/09/01 13:50:34 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/09/09 12:21:40 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,12 +89,7 @@ SRC_NAME = ft_atoi.c \
 	   ft_sqrt.c \
 	   ft_strcapitalize.c \
 	   ft_strnjoinfree.c \
-	   get_next_line.c \
-	   ft_check.c \
-	   ft_test.c \
-	   ft_args.c \
-	   ft_ftoa.c \
-	   ft_flags.c
+	   get_next_line.c 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -107,8 +102,8 @@ WHITE = \033[0m
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	@ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
+$(NAME) : $(OBJ) ./includes/libft.h
+	ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -116,15 +111,17 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@echo "$(GREEN)$@$(WHITE)"
 
 clean :
-	@rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
+	rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean : clean
-	@rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
+	rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
 
 re : fclean all
 
 .PHONY : all clean fclean re
+
+.SILENT : $(NAME) %.o
 
 norme:
 	norminette $(SRC)

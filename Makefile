@@ -26,13 +26,13 @@ WHITE = \033[0m
 
 all : $(NAME)
 
-$(NAME) : lib $(OBJ) 
+$(NAME) : $(LDLIB) $(OBJ) 
 	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) $(OBJ) -o $@ && echo "$(GREEN)$@ compiled$(WHITE)"
 
 ./%.o: ./%.c
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< && echo "$(GREEN)$@$(WHITE)"
 
-lib : 
+$(LDLIB) : 
 	@make -C libft
 
 clean :
