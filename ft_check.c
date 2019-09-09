@@ -6,13 +6,11 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 13:40:46 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/08/28 11:34:16 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:48:48 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#include "libft.h"
+#include "ft_printf.h"
 
 void	ft_putnstr(char * str, int n)
 {
