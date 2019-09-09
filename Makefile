@@ -1,64 +1,34 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+NAME	= libftprintf.a
+SRC		= ft_printf.c ft_args.c ft_check.c  ft_flags.c \
+		  ft_ftoa.c ft_test.c
+OBJ		= $(SRC:.c=.o)
 
-SRC_PATH =
 
-OBJ_PATH =
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
 
-CPPFLAGS = -Ilibft/includes
+LIBFLAGS = -Ilibft/includes
+LIBFT	= libft/libftprintf.a
 
-LDFLAGS = -Llibft
-LDLIBS = -lftprintf
-LDLIB = libftprintf.a
 
-NAME = main.out
+all: $(NAME)
 
-SRC_NAME = main.c
+$(NAME): $(OBJ) ft_printf.h libft/includes/libft.h
+	$(MAKE) -C libft
+	mv $(LIBFT) $@
+	ar rcs $@ $(OBJ)
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
+%.o: %.c
+	$(CC) $(CFLAGS) $(LIBFLAGS) -o $@ -c $<
 
-SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
+clean:
+	$(MAKE) -C libft/ clean
+	/bin/rm -f $(OBJ)
 
-GREEN = \033[0;32m
-RED = \033[0;31m
-WHITE = \033[0m
+fclean: clean
+	$(MAKE) -C libft/ fclean
+	/bin/rm -f $(NAME)
 
-all : $(NAME)
+re: fclean all
 
-$(NAME) : $(LDLIB) $(OBJ) 
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) $(OBJ) -o $@ && echo "$(GREEN)$@ compiled$(WHITE)"
-
-./%.o: ./%.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< && echo "$(GREEN)$@$(WHITE)"
-
-$(LDLIB) : 
-	@make -C libft
-
-clean :
-	@make -C libft clean
-	@rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
-
-fclean : clean
-	@make -C libft fclean
-	@rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
-
-re : fclean 
-	@make
-
-test : 
-ifeq ($(findstring libftprintf.a,$(shell ls libft)),$(LDLIB))
-	@echo "$(GREEN)trouve$(WHITE)"
-else
-	@echo "$(GREEN)pas trouve$(WHITE)"
-endif
-
-run : ./$(NAME) 
-	@./$(NAME) ${ARGS}
-
-rerun : re run
-.PHONY : $(NAME) clean fclean
-
-norme:
-	norminette $(SRC)
-	norminette $(INC_PATH)*.h
+.PHONY: all clean fclean re
