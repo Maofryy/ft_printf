@@ -8,7 +8,7 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 LIBFLAGS = -Ilibft/includes
-LIBFT	= libft/libftprintf.a
+LIBFT	= libft/libft.a
 
 
 all: $(NAME)

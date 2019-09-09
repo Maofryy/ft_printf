@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/09/09 12:21:40 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/09/09 12:39:29 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ OBJ_PATH = ./objs
 CPPFLAGS = -Iincludes
 
 LDFLAGS = -Llibft
-LDLIBS = -lftprintf
+LDLIBS = -lft
 
-NAME = libftprintf.a
+NAME = libft.a
 
 SRC_NAME = ft_atoi.c \
 	   ft_bzero.c \
