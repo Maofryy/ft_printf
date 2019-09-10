@@ -92,5 +92,6 @@ char			*ft_strcapitalize(char *str);
 char			*ft_strjoinfree(char *s1, char *s2, int n);
 int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
+char			*ft_itoa_base(int n, int base);
 
 #endif

@@ -4,7 +4,7 @@ SRC		= ft_printf.c ft_args.c ft_check.c  ft_flags.c \
 OBJ		= $(SRC:.c=.o)
 
 
-CC		= gcc
+CC		= g++
 CFLAGS	= -Wall -Wextra -Werror
 
 LIBFLAGS = -Ilibft/includes

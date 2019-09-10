@@ -32,7 +32,8 @@ SRC_NAME = ft_atoi.c \
 	   ft_isdigit.c \
 	   ft_isprint.c \
 	   ft_itoa.c \
-	   ft_lstadd.c \
+	   ft_itoa_base.c \
+		ft_lstadd.c \
 	   ft_lstdel.c \
 	   ft_lstdelone.c \
 	   ft_lstiter.c \
