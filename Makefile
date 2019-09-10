@@ -13,12 +13,10 @@ LIBFT	= libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ) ft_printf.h
+$(NAME): $(OBJ) ft_printf.h
+	$(MAKE) -C libft
 	mv $(LIBFT) $@
 	ar rcs $@ $(OBJ)
-
-$(LIBFT) :
-	make -C libft/
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(LIBFLAGS) -o $@ -c $<
