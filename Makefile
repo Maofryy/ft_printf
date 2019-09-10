@@ -4,7 +4,7 @@ SRC		= ft_printf.c ft_args.c ft_check.c  ft_flags.c \
 OBJ		= $(SRC:.c=.o)
 
 
-CC		= g++
+CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 LIBFLAGS = -Ilibft/includes
@@ -13,10 +13,12 @@ LIBFT	= libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) ft_printf.h libft/includes/libft.h
-	$(MAKE) -C libft
+$(NAME): $(LIBFT) $(OBJ) ft_printf.h
 	mv $(LIBFT) $@
 	ar rcs $@ $(OBJ)
+
+$(LIBFT) :
+	make -C libft/
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(LIBFLAGS) -o $@ -c $<

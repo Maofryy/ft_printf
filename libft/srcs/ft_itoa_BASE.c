@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_BASE.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <mbenhass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,10 +17,10 @@ static char	ft_base_char(int n)
 {
 	if (n < 10)
 		return (n + '0');
-	return (n - 10 + 'a');
+	return (n - 10 + 'A');
 }
 
-char		*ft_itoa_base(int n, int base)
+char		*ft_itoa_BASE(int n, int base)
 {
 	unsigned int	value;
 	int				count;

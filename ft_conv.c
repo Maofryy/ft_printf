@@ -22,7 +22,7 @@ char hex_digit(int v) {
 void ft_ret_addr_str(void* p0, char *str)
 {
 	int i;
-	uintptr_t p = (uintptr_t)p0;
+	intptr_t p = (intptr_t)p0;
 	
 	*(str++)='0'; 
 	*(str++) = 'x';

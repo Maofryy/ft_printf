@@ -49,26 +49,35 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 		str = ft_itoa((va_arg(ap, int)));
 		return (str);
 	}
-	/*else if (fl.fl_cv == 5)
+	else if (fl.fl_cv == 5) //Unsigned octal
 	{
-		str = ft_putnbr((void *)va_arg(ap, unsigned char), str);
+		free(str);
+		str = ft_itoa_base((int)va_arg(ap, int), 8);
 		return (str);
 	}
-	else if (fl.fl_cv == 6)
+	else if (fl.fl_cv == 6) //Unsigned decimal int
 	{
-		ft_ret_addr_str((void *)va_arg(ap, void *), str);
+		free(str);
+		str = ft_itoa((unsigned int)va_arg(ap, unsigned int));
 		return (str);
 	}
 	else if (fl.fl_cv == 7)
 	{
-		ft_ret_addr_str((void *)va_arg(ap, void *), str);
+		free(str);
+		str = ft_itoa_base((unsigned int)va_arg(ap, unsigned int), 16);
+		return (str);
+	}
+	else if (fl.fl_cv == 8)
+	{
+		free(str);
+		str = ft_itoa_BASE((unsigned int)va_arg(ap, unsigned int), 16);
 		return (str);
 	}
 	else if (fl.fl_cv == 9)
 	{
 		ft_ftoa(va_arg(ap, double), str, fl.fl_pr);
 		return (str);
-	}*/
+	}
 	else
 		return (NULL);
 }
