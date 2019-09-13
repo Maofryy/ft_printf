@@ -156,6 +156,12 @@ char	*check_fieldwidth(t_flags fl, char *str)
 	return (str);
 }
 
+char	*process_sharp(t_flags fl, char *str)
+{
+	
+	return (str);
+}
+
 char	*conv_arg(t_flags fl, va_list ap)
 {
 //	char	*fmt;
@@ -170,5 +176,7 @@ char	*conv_arg(t_flags fl, va_list ap)
 	if (fl.fl_cv <= 8 || fl.fl_cv >= 4)
 		str = check_int_pr(fl.fl_pr, str);
 	str = check_fieldwidth(fl, str);
+	if (fl.fl_sharp == 1)
+		str = process_sharp(fl, str);
 	return (str);
 }

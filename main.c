@@ -89,7 +89,7 @@ int main(int ac, char **av) {
 	*/
 
 	//-------------------WIDTH TESTS------------------------------------
-
+	/*
 	printf("rl :Hey try this float with fw 9 : %9d\n", n);
 	printf("rl :Hey try this float with fw 9 - : %-9d\n", n);
 	printf("rl :Hey try this float with fw 9 0 : %09d\n", n);
@@ -100,7 +100,13 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this float with fw 9 0 : %09d\n", n);
 	ft_printf("ft :Hey try this float with fw 3 0 : %03d\n", n);
 	ft_printf("ft :Hey try this float with fw 3 : %3d\n", n);
+	*/
 
+	//------------------FLAGS TESTS------------------------------
+
+	printf("rl :Hey try this octal char : %#06o\n", (unsigned char)n);
+	printf("rl :Hey try this octal char : %06o\n", (unsigned char)n);
+	
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)
