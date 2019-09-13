@@ -19,10 +19,10 @@ int main(int ac, char **av) {
 
 	int n = 775805;
 	//long double sep = 9147483647;
-	char str[] = "Hey this is a string";
+	//char str[] = "Hey this is a string";
 
 	//void *p = &str;
-	float sep = (float)4/9;
+	//float sep = (float)4/9;
 	//ft_dtoa(sep, str, 6);
 	
 	/*//------------BONUS TEST--------------------
@@ -72,7 +72,7 @@ int main(int ac, char **av) {
 	*/	
 
 	//-----------------PRECISION TESTS-------------------------------
-	
+	/*
 	printf("rl :Hey try this int : %d\n", n);
 	printf("rl :Hey try this int with pr 15 : %.15d\n", n);
 	printf("rl :Hey try this hexa int with pr 15 : %.15X\n", (unsigned)n);
@@ -86,6 +86,20 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this string with pr 5 : %.5s\n", str);
 	ft_printf("ft :Hey try this float with pr 5 : %.5f\n", sep);
 	ft_printf("ft :Hey try this float with pr 9 : %.9f\n", sep);
+	*/
+
+	//-------------------WIDTH TESTS------------------------------------
+
+	printf("rl :Hey try this float with fw 9 : %9d\n", n);
+	printf("rl :Hey try this float with fw 9 - : %-9d\n", n);
+	printf("rl :Hey try this float with fw 9 0 : %09d\n", n);
+	printf("rl :Hey try this float with fw 3 0 : %03d\n", n);
+	printf("rl :Hey try this float with fw 3 : %3d\n", n);
+	ft_printf("ft :Hey try this float with fw 9 : %9d\n", n);
+	ft_printf("ft :Hey try this float with fw 9 - : %-9d\n", n);
+	ft_printf("ft :Hey try this float with fw 9 0 : %09d\n", n);
+	ft_printf("ft :Hey try this float with fw 3 0 : %03d\n", n);
+	ft_printf("ft :Hey try this float with fw 3 : %3d\n", n);
 
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");

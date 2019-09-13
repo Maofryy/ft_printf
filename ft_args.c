@@ -133,6 +133,29 @@ char	*check_int_pr(int pr, char *str)
 	return (str);
 }
 
+char	*check_fieldwidth(t_flags fl, char *str)
+{
+	int i;
+	char c;
+
+	i = ft_strlen(str);
+	c = ' ';
+	if (i < fl.fl_fw)
+	{
+		if (fl.fl_minus != 1)
+			ft_reverse_str(str, i);
+		if (fl.fl_zero == 1 && fl.fl_minus != 1)
+			c = '0';
+		while (i < fl.fl_fw)
+			str[i++]=c;
+		//add missing zeros
+		if (fl.fl_minus != 1)
+			ft_reverse_str(str, i);
+	}
+	str[i] = '\0';
+	return (str);
+}
+
 char	*conv_arg(t_flags fl, va_list ap)
 {
 //	char	*fmt;
@@ -145,6 +168,7 @@ char	*conv_arg(t_flags fl, va_list ap)
 	str = (char *)malloc(sizeof(char *)*30);
 	str = print_arg(fl, str, ap);
 	if (fl.fl_cv <= 8 || fl.fl_cv >= 4)
-		str = check_int_pr(fl.fl_pr, str); 
+		str = check_int_pr(fl.fl_pr, str);
+	str = check_fieldwidth(fl, str);
 	return (str);
 }
