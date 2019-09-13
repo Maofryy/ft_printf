@@ -115,6 +115,20 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 		return (NULL);
 }
 
+char	*check_int_pr(int pr, char *str)
+{
+	int i;
+
+	i = ft_strlen(str);
+	if (i < pr)
+	{
+		//reverse
+		//add missing zeros
+		//re reverse
+	}
+	return (str);
+}
+
 char	*conv_arg(t_flags fl, va_list ap)
 {
 //	char	*fmt;
@@ -125,5 +139,8 @@ char	*conv_arg(t_flags fl, va_list ap)
 	char *str;
 
 	str = (char *)malloc(sizeof(char *)*30);
-	return (print_arg(fl, str, ap));
+	str = print_arg(fl, str, ap);
+	if (fl.fl_cv <= 8 || fl.fl_cv >= 4)
+		str = check_int_pr(fl.fl_pr, str); 
+	return ();
 }

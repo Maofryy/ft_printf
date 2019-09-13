@@ -17,8 +17,8 @@ int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
 
-	long n = 9223372036854775805;
-	long double sep = 9147483647;
+	int n = 775805;
+	//long double sep = 9147483647;
 	//char str[] = "Hey this is a string";
 
 	//void *p = &str;
@@ -50,6 +50,7 @@ int main(int ac, char **av) {
 	*/
 
 	//---------------LENGTH TEST--------------	
+	/*
 	//printf("pr :Hey try this int : %d\n", (int)n);
 	//printf("pr :Hey try this int : %hhd\n", (char)n);
 	//ft_printf("ft :Hey try this int : %d\n", (int)n);
@@ -67,6 +68,15 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this float : %f\n", (float)sep);
 	ft_printf("ft :Hey try this double size float : %lf\n", (double)sep);
 	ft_printf("ft :Hey try this long double size float : %Lf\n", (long double)sep);
+	*/	
+
+	//-----------------PRECISION TESTS-------------------------------
+	
+	printf("rl :Hey try this int : %d\n", n);
+	printf("rl :Hey try this int : %-.9d\n", n);
+	ft_printf("ft :Hey try this int : %d\n", n);
+	ft_printf("ft :Hey try this int : %.9d\n", n);
+
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)
