@@ -27,6 +27,20 @@ char	*print_char(char c)
 	return (str);
 }
 
+char	*ret_str_float(t_flags fl, char *str, long double f)
+{
+	if (fl.fl_sc == 3)
+		ft_dtoa((double)f, str, fl.fl_pr);
+	else if (fl.fl_sc == 5)
+		ft_dtoa((long double)f, str, fl.fl_pr);
+	else if (fl.fl_sc == -1)
+		ft_dtoa((float)f, str, fl.fl_pr);
+	else
+		return (NULL);//attention a retourner erreur et finir le prog si pas bon
+				//mais de toute facon va y a voir la fonction check flags pour tout ca donc bon...
+	return (str);
+}
+
 char	*ret_str_int(t_flags fl, char *str, long long int n)
 {
 	if (fl.fl_sc == 1)
@@ -37,6 +51,8 @@ char	*ret_str_int(t_flags fl, char *str, long long int n)
 		str = ft_lltoa((long int)n);
 	else if (fl.fl_sc == 4)
 		str = ft_lltoa((long long int)n);
+	else if (fl.fl_sc == -1)
+		str = ft_itoa((int)n);
 	else
 		return (NULL);//return erreur plutot mais bon, to fix later
 	return (str);
@@ -55,12 +71,13 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 		return (str);
 	}
 	else if (fl.fl_cv == 3)//p: pointer
-	{
+	{	
 		ft_ret_addr_str((void *)va_arg(ap, void *), str);
 		return (str);
 	}
 	else if (fl.fl_cv == 4) //d: Int
 	{
+		free(str);
 		str = ret_str_int(fl, str, (long long int)va_arg(ap, long long int));
 		return (str);
 	}
@@ -88,9 +105,10 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 		str = ft_itoa_BASE((unsigned int)va_arg(ap, unsigned int), 16);
 		return (str);
 	}
-	else if (fl.fl_cv == 9)//f: float
+	else if (fl.fl_cv == 9)//f: float need to malloc before or in the ftoa/dtoa function
 	{
-		ft_ftoa(va_arg(ap, double), str, fl.fl_pr);
+		free(str);
+		str = ret_str_float(fl, str, va_arg(ap, double));
 		return (str);
 	}
 	else

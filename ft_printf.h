@@ -48,7 +48,7 @@ t_flags			read_flags(char ** p);
 void			flags_print(t_flags fl);
 void			ft_putnstr(char *str, int n);
 void			ft_ftoa(float n, char *str, int after);
-void			ft_dtoa(double n, char *str, int after);
+void			ft_dtoa(long double n, char *str, int after);
 void			ft_ret_addr_str(void *p, char *str);
 
 #endif
