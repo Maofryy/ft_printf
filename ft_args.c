@@ -158,7 +158,32 @@ char	*check_fieldwidth(t_flags fl, char *str)
 
 char	*process_sharp(t_flags fl, char *str)
 {
-	
+	int i;
+
+	i = ft_strlen(str);
+	if (fl.fl_cv == 5 && str[0] != '0')
+	{
+		ft_reverse_str(str, i);
+		str[i++]='0';
+		ft_reverse_str(str, i);
+		str[i] = '\0';
+	}
+	else if (fl.fl_cv == 9 && fl.fl_pr == 0)
+	{
+		str[i] = '.';
+		str[i + 1] = '\0';
+	}
+	else if (fl.fl_cv == 7 || fl.fl_cv == 8)
+	{
+		ft_reverse_str(str, i);
+		if (fl.fl_cv == 7)
+			str[i++] = 'x';
+		else
+			str[i++] = 'X';
+		str[i++] = '0';
+		ft_reverse_str(str, i);
+		str[i]='\0';
+	}
 	return (str);
 }
 

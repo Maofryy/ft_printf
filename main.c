@@ -18,7 +18,7 @@ int main(int ac, char **av) {
 	(void)av;
 
 	int n = 775805;
-	//long double sep = 9147483647;
+	float sep = 9147483.647;
 	//char str[] = "Hey this is a string";
 
 	//void *p = &str;
@@ -77,16 +77,16 @@ int main(int ac, char **av) {
 	printf("rl :Hey try this int with pr 15 : %.15d\n", n);
 	printf("rl :Hey try this hexa int with pr 15 : %.15X\n", (unsigned)n);
 	printf("rl :Hey try this string with pr 5 : %.5s\n", str);
-	printf("rl :Hey try this float with pr 5 : %.5f\n", sep);
+	printf("rl :Hey try this float with pr 0 : %.f\n", sep);
 	printf("rl :Hey try this float with pr 9 : %.9f\n", sep);
 
 	ft_printf("ft :Hey try this int : %d\n", n);
 	ft_printf("ft :Hey try this int with pr 15 : %.15d\n", n);
 	ft_printf("ft :Hey try this hexa int with pr 15 : %.15X\n", (unsigned)n);
 	ft_printf("ft :Hey try this string with pr 5 : %.5s\n", str);
-	ft_printf("ft :Hey try this float with pr 5 : %.5f\n", sep);
+	ft_printf("ft :Hey try this float with pr 0 : %.f\n", sep);
 	ft_printf("ft :Hey try this float with pr 9 : %.9f\n", sep);
-	*/
+	*/	
 
 	//-------------------WIDTH TESTS------------------------------------
 	/*
@@ -104,8 +104,14 @@ int main(int ac, char **av) {
 
 	//------------------FLAGS TESTS------------------------------
 
-	printf("rl :Hey try this octal char : %#06o\n", (unsigned char)n);
-	printf("rl :Hey try this octal char : %06o\n", (unsigned char)n);
+	printf("rl :Hey try this octal char : %#0o\n", (unsigned char)n);
+	printf("rl :Hey try this lower hexa : %#x\n", (unsigned int)n);
+	printf("rl :Hey try this upper hexa : %#X\n", (unsigned int)n);
+	printf("rl :Hey try this float : %#.f\n", sep);
+	ft_printf("ft :Hey try this octal char : %#0o\n", (unsigned char)n);
+	ft_printf("ft :Hey try this lower hexa : %#x\n", (unsigned int)n);
+	ft_printf("ft :Hey try this upper hexa : %#X\n", (unsigned int)n);
+	ft_printf("ft :Hey try this float : %#.f\n", sep);
 	
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
