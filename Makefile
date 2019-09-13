@@ -39,4 +39,4 @@ re: fclean all
 .SILENT: all $(NAME) clean fclean re
 
 run: $(NAME)
-	$(CC) $(CFLAGS) main.c -o test.out libftprintf.a && ./test.out
+	$(CC) $(CFLAGS) -g main.c -o test.out libftprintf.a && ./test.out

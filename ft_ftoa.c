@@ -48,16 +48,17 @@ int	ft_ltoa_d(long long n, char *str, int d)
 	int i;
 
 	i = 0;
+	if (n == 0)
+		str[i++] = '0';
 	while (n) 
 	{ 
 		str[i++] = (n%10) + '0'; 
 		n = n/10; 
-	} 
+	}
 	while (i < d) 
 		str[i++] = '0'; //Ce char depends des flags, donc peut etre passer le char a la fonction en lisant les flags 0-+# 
-
-	ft_reverse_str(str, i); 
-	str[i] = '\0'; 
+	ft_reverse_str(str, i);
+	str[i] = '\0';
 	return i;
 }
 
@@ -72,6 +73,8 @@ void	ft_ftoa(float n, char *str, int after)
 	ipart = (long long)n;
 	fpart = n - (float)ipart;
 	i = ft_ltoa_d(ipart, str, 0);
+	ft_putstr(str);
+	ft_putchar('\n'); 
 	if (after != 0)
 	{
 		str[i] = '.';

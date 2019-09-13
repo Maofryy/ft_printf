@@ -68,6 +68,7 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 	else if (fl.fl_cv == 2)//s: string
 	{
 		str = (char *)va_arg(ap, char *);
+		str[fl.fl_pr] = '\0'; //need to realloc	
 		return (str);
 	}
 	else if (fl.fl_cv == 3)//p: pointer
@@ -122,10 +123,13 @@ char	*check_int_pr(int pr, char *str)
 	i = ft_strlen(str);
 	if (i < pr)
 	{
-		//reverse
+		ft_reverse_str(str, i);
+		while (i < pr)
+			str[i++]='0';
 		//add missing zeros
-		//re reverse
+		ft_reverse_str(str, i);
 	}
+	str[i] = '\0';
 	return (str);
 }
 
@@ -142,5 +146,5 @@ char	*conv_arg(t_flags fl, va_list ap)
 	str = print_arg(fl, str, ap);
 	if (fl.fl_cv <= 8 || fl.fl_cv >= 4)
 		str = check_int_pr(fl.fl_pr, str); 
-	return ();
+	return (str);
 }
