@@ -32,9 +32,9 @@ SRC_NAME = ft_atoi.c \
 	   ft_isdigit.c \
 	   ft_isprint.c \
 	   ft_itoa.c \
+	   ft_lltoa.c \
 	   ft_itoa_base.c \
-	   ft_itoa_BASE.c \
-		ft_lstadd.c \
+	   ft_lstadd.c \
 	   ft_lstdel.c \
 	   ft_lstdelone.c \
 	   ft_lstiter.c \
@@ -122,6 +122,8 @@ fclean : clean
 re : fclean all
 
 .PHONY : all clean fclean re
+
+.SILENT : all $(NAME) clean fclean re
 
 norme:
 	norminette $(SRC)

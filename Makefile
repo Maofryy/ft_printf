@@ -10,16 +10,19 @@ CFLAGS	= -Wall -Wextra -Werror
 LIBFLAGS = -Ilibft/includes
 LIBFT	= libft/libft.a
 
+GREEN = \033[0;32m
+RED = \033[0;31m
+WHITE = \033[0m
 
 all: $(NAME)
 
 $(NAME): $(OBJ) ft_printf.h
 	$(MAKE) -C libft
-	mv $(LIBFT) $@
-	ar rcs $@ $(OBJ)
+	cp $(LIBFT) $@
+	ar rcs $@ $(OBJ) && echo "$(GREEN)$@ successfully created$(WHITE)"
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(LIBFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(LIBFLAGS) -o $@ -c $< && echo "$(GREEN)$@$(WHITE)"
 
 clean:
 	$(MAKE) -C libft/ clean
@@ -32,3 +35,8 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+.SILENT: all $(NAME) clean fclean re
+
+run: $(NAME)
+	$(CC) $(CFLAGS) main.c -o test.out libftprintf.a && ./test.out

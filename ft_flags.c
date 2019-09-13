@@ -62,6 +62,8 @@ t_flags		read_flags(char ** p)
 	}
 	if (is_conv_flag((char *)*p, &fl))
 		(*p)++;
+	if (fl.fl_sc == 1 || fl.fl_sc == 4)
+		(*p)++;
 	if (is_conv(**p, &fl))
 		(*p)++;
 	return (fl);

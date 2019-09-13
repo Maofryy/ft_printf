@@ -27,53 +27,68 @@ char	*print_char(char c)
 	return (str);
 }
 
+char	*ret_str_int(t_flags fl, char *str, long long int n)
+{
+	if (fl.fl_sc == 1)
+		str = ft_itoa((char)n);
+	else if (fl.fl_sc == 2)
+		str = ft_itoa((short int)n);
+	else if (fl.fl_sc == 3)
+		str = ft_lltoa((long int)n);
+	else if (fl.fl_sc == 4)
+		str = ft_lltoa((long long int)n);
+	else
+		return (NULL);//return erreur plutot mais bon, to fix later
+	return (str);
+}
+
 char	*print_arg(t_flags fl, char *str, va_list ap)
 {
-	if (fl.fl_cv == 1)
+	if (fl.fl_cv == 1)//c: char
 	{
 		str = print_char((char)va_arg(ap, int));
 		return (str);
 	}
-	else if (fl.fl_cv == 2)
+	else if (fl.fl_cv == 2)//s: string
 	{
 		str = (char *)va_arg(ap, char *);
 		return (str);
 	}
-	else if (fl.fl_cv == 3)
+	else if (fl.fl_cv == 3)//p: pointer
 	{
 		ft_ret_addr_str((void *)va_arg(ap, void *), str);
 		return (str);
 	}
-	else if (fl.fl_cv == 4)
+	else if (fl.fl_cv == 4) //d: Int
 	{
-		str = ft_itoa((va_arg(ap, int)));
+		str = ret_str_int(fl, str, (long long int)va_arg(ap, long long int));
 		return (str);
 	}
-	else if (fl.fl_cv == 5) //Unsigned octal
+	else if (fl.fl_cv == 5) //o: Unsigned octal
 	{
 		free(str);
 		str = ft_itoa_base((int)va_arg(ap, int), 8);
 		return (str);
 	}
-	else if (fl.fl_cv == 6) //Unsigned decimal int
+	else if (fl.fl_cv == 6) //u: Unsigned decimal int
 	{
 		free(str);
 		str = ft_itoa((unsigned int)va_arg(ap, unsigned int));
 		return (str);
 	}
-	else if (fl.fl_cv == 7)
+	else if (fl.fl_cv == 7)//x: hexa lowercase
 	{
 		free(str);
 		str = ft_itoa_base((unsigned int)va_arg(ap, unsigned int), 16);
 		return (str);
 	}
-	else if (fl.fl_cv == 8)
+	else if (fl.fl_cv == 8)//x: hexa uppercase
 	{
 		free(str);
 		str = ft_itoa_BASE((unsigned int)va_arg(ap, unsigned int), 16);
 		return (str);
 	}
-	else if (fl.fl_cv == 9)
+	else if (fl.fl_cv == 9)//f: float
 	{
 		ft_ftoa(va_arg(ap, double), str, fl.fl_pr);
 		return (str);
