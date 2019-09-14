@@ -81,13 +81,13 @@ unsigned int));
 	else if (fl.fl_cv == 7)//x: hexa lowercase
 	{
 		free(str);
-		str = ret_str_xint(fl, str, (unsigned long long)va_arg(ap, unsigned int));
+		str = ret_str_xint(fl, str, (unsigned long long)va_arg(ap, unsigned long long int));
 		return (str);
 	}
 	else if (fl.fl_cv == 8)//x: hexa uppercase
 	{
 		free(str);
-		str = ret_str_Xint(fl, str, (unsigned long long)va_arg(ap, unsigned int));
+		str = ret_str_Xint(fl, str, (unsigned long long)va_arg(ap, unsigned long long int));
 		return (str);
 	}
 	else if (fl.fl_cv == 9)//f: float need to malloc before or in the ftoa/dtoa function
@@ -182,6 +182,16 @@ char	*process_sign_flags(t_flags fl, char *str)
 		{
 			ft_reverse_str(str, i);
 			str[i++]='+';
+			ft_reverse_str(str, i);
+			str[i++]='\0';
+		}
+	}
+	else if (fl.fl_space == 1)
+	{
+		if (fl.fl_cv_sign == 1)
+		{
+			ft_reverse_str(str, i);
+			str[i++]=' ';
 			ft_reverse_str(str, i);
 			str[i++]='\0';
 		}

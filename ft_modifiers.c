@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 char	*ret_str_int(t_flags fl, char *str, long long int n)
 {
@@ -36,6 +37,7 @@ char	*ret_str_Xint(t_flags fl, char *str, unsigned long long int n)
 
 char	*ret_str_xint(t_flags fl, char *str, unsigned long long int n)
 {
+	
 	if (fl.fl_sc == 1)
 		str = ft_ulltoa_base((unsigned char)n, 16);
 	else if (fl.fl_sc == 2)

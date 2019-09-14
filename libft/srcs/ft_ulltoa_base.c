@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdio.h>
 
 static char	ft_base_char(int n)
 {
@@ -47,6 +48,7 @@ char		*ft_ulltoa_BASE(unsigned long long n, int base)
 	unsigned int	value;
 	int				count;
 	char			*str;
+	printf("\n hey : %lu\n", (unsigned long)n);
 
 	if (base < 2 || base > 36)
 		return (NULL);
