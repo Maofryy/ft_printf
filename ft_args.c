@@ -41,23 +41,6 @@ char	*ret_str_float(t_flags fl, char *str, long double f)
 	return (str);
 }
 
-char	*ret_str_int(t_flags fl, char *str, long long int n)
-{
-	if (fl.fl_sc == 1)
-		str = ft_itoa((char)n);
-	else if (fl.fl_sc == 2)
-		str = ft_itoa((short int)n);
-	else if (fl.fl_sc == 3)
-		str = ft_lltoa((long int)n);
-	else if (fl.fl_sc == 4)
-		str = ft_lltoa((long long int)n);
-	else if (fl.fl_sc == -1)
-		str = ft_itoa((int)n);
-	else
-		return (NULL);//return erreur plutot mais bon, to fix later
-	return (str);
-}
-
 char	*print_arg(t_flags fl, char *str, va_list ap)
 {
 	if (fl.fl_cv == 1)//c: char
@@ -85,25 +68,26 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 	else if (fl.fl_cv == 5) //o: Unsigned octal
 	{
 		free(str);
-		str = ft_itoa_base((int)va_arg(ap, int), 8);
+		str = ret_str_uchar(fl, str, (unsigned long long)va_arg(ap, unsigned int));
 		return (str);
 	}
 	else if (fl.fl_cv == 6) //u: Unsigned decimal int
 	{
 		free(str);
-		str = ft_itoa((unsigned int)va_arg(ap, unsigned int));
+		str = ret_str_uint(fl, str, (unsigned long long)va_arg(ap, \
+unsigned int));
 		return (str);
 	}
 	else if (fl.fl_cv == 7)//x: hexa lowercase
 	{
 		free(str);
-		str = ft_itoa_base((unsigned int)va_arg(ap, unsigned int), 16);
+		str = ret_str_xint(fl, str, (unsigned long long)va_arg(ap, unsigned int));
 		return (str);
 	}
 	else if (fl.fl_cv == 8)//x: hexa uppercase
 	{
 		free(str);
-		str = ft_itoa_BASE((unsigned int)va_arg(ap, unsigned int), 16);
+		str = ret_str_Xint(fl, str, (unsigned long long)va_arg(ap, unsigned int));
 		return (str);
 	}
 	else if (fl.fl_cv == 9)//f: float need to malloc before or in the ftoa/dtoa function
@@ -187,6 +171,24 @@ char	*process_sharp(t_flags fl, char *str)
 	return (str);
 }
 
+char	*process_sign_flags(t_flags fl, char *str)
+{
+	int i;
+
+	i = ft_strlen(str);
+	if (fl.fl_plus == 1)
+	{
+		if (fl.fl_cv_sign == 1)
+		{
+			ft_reverse_str(str, i);
+			str[i++]='+';
+			ft_reverse_str(str, i);
+			str[i++]='\0';
+		}
+	}
+	return (str);
+}
+
 char	*conv_arg(t_flags fl, va_list ap)
 {
 //	char	*fmt;
@@ -194,15 +196,17 @@ char	*conv_arg(t_flags fl, va_list ap)
 	//be careful and malloc correctly the void pointer
 	//fmt = read_fmt(fl);
 	//ft_putstr(print_arg(fl, ap));
-	char *str;
+	char	*str;
 
 	str = (char *)malloc(sizeof(char *)*30);
 	str = print_arg(fl, str, ap);
 	if (fl.fl_cv <= 8 || fl.fl_cv >= 4)
 		str = check_int_pr(fl.fl_pr, str);
+	if (str[0] != '-')
+		fl.fl_cv_sign = 1;
 	str = check_fieldwidth(fl, str);
 	if (fl.fl_sharp == 1)
 		str = process_sharp(fl, str);
-
+	str = process_sign_flags(fl, str);
 	return (str);
 }

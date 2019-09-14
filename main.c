@@ -17,37 +17,38 @@ int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
 
-	int n = -775805;
-	float sep = 9147483.647;
-	//char str[] = "Hey this is a string";
+	int n = -7805;
+	float sep = -9147483.647;
+	char str[] = "Hey this is a string";
 
-	//void *p = &str;
+	void *p = &str;
 	//float sep = (float)4/9;
 	//ft_dtoa(sep, str, 6);
 	
 	/*//------------BONUS TEST--------------------
 	printf("Does this work : \033[0;32m%s\033[0m ?\n", "test");*/
-	/* //------------IDENTIFIER TEST------------
-	printf("Hey try this char : %c\n", *str);
-	printf("Hey try this string : %s\n", str);
-	printf("Hey try this pointer : %p\n", p);
-	printf("Hey try this int : %d\n", (int)sep);
-	printf("Hey try this float : %f\n", sep);
-	printf("Hey try this an unsigned octet : %o\n", *str);
-	printf("Hey try this an unsigned int : %u\n", (unsigned int)n);
-	printf("Hey try this an unsigned hexa int : %x\n", (unsigned int)n);
-	printf("Hey try this an unsigned HEXA int  : %X\n", (unsigned int)n);
+	//------------IDENTIFIER TEST-----------------
+	
+	printf("rl : Hey try this char : %c\n", *str);
+	printf("rl : Hey try this string : %s\n", str);
+	printf("rl : Hey try this pointer : %p\n", p);
+	printf("rl : Hey try this int : %+d\n", (int)sep);
+	printf("rl : Hey try this float : %+f\n", sep);
+	printf("rl : Hey try this an unsigned octet : %o\n", *str);
+	printf("rl : Hey try this an unsigned int : %u\n", (unsigned int)n);
+	printf("rl : Hey try this an unsigned hexa int : %x\n", (unsigned int)n);
+	printf("rl : Hey try this an unsigned HEXA int  : %X\n", (unsigned int)n);
 
 	ft_printf("ft :Hey try this char : %c\n", *str);
 	ft_printf("ft :Hey try this string : %s\n", str);
 	ft_printf("ft :Hey try this pointer : %p\n", p);
-	ft_printf("ft :Hey try this int : %d\n", (int)sep);
-	ft_printf("ft :Hey try this float : %f\n", sep);
+	ft_printf("ft :Hey try this int : %+d\n", (int)sep);
+	ft_printf("ft :Hey try this float : %+f\n", sep);
 	ft_printf("ft :Hey try this an unsigned octet : %o\n", *str);
 	ft_printf("ft :Hey try this an unsigned int : %u\n", (unsigned int)n);
 	ft_printf("ft :Hey try this an unsigned hexa int : %x\n", (unsigned int)n);
 	ft_printf("ft :Hey try this an unsigned HEXA int  : %X\n", (unsigned int)n);
-	*/
+	
 
 	//---------------LENGTH TEST--------------	
 	/*
@@ -89,7 +90,7 @@ int main(int ac, char **av) {
 	*/	
 
 	//-------------------WIDTH TESTS------------------------------------
-	
+	/*
 	printf("rl :Hey try this float with fw 9 : %9d\n", n);
 	printf("rl :Hey try this float with fw 9 - : %-9d\n", n);
 	printf("rl :Hey try this float with fw 9 0 : %09d\n", n);
@@ -100,7 +101,7 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this float with fw 9 0 : %09d\n", n);
 	ft_printf("ft :Hey try this float with fw 3 0 : %03d\n", n);
 	ft_printf("ft :Hey try this float with fw 3 : %3d\n", n);
-	
+	*/
 
 	//------------------FLAGS TESTS------------------------------
 	/*
@@ -114,9 +115,9 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this lower hexa : %#x\n", (unsigned int)n);
 	ft_printf("ft :Hey try this upper hexa : %#X\n", (unsigned int)n);
 	ft_printf("ft :Hey try this float : %#.f\n", sep);
-	ft_printf("ft :Hey try this float : % f\n", sep);*/
+	ft_printf("ft :Hey try this float : % f\n", sep);
 	ft_printf("ft :Hey try this float : % f\n", -sep);
-	
+	*/
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)

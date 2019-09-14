@@ -1,4 +1,9 @@
+Check values with negative attributes, expecially when casting into unsigned
 Work on sign flag, then give some thoughts on how to malloc correctly, like realloc later or idk
+Write error messages and proper free exit
+
+
+
 Clean the calls of stdio a bit everywhere, begin to change functions file names and normalize a bit
 Check out leaks @42 on Monday 16
 Get trhough 42fc

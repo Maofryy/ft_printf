@@ -68,8 +68,6 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
-char			*ft_itoa(int n);
-char			*ft_lltoa(long long int n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
@@ -93,7 +91,13 @@ char			*ft_strcapitalize(char *str);
 char			*ft_strjoinfree(char *s1, char *s2, int n);
 int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
+char			*ft_itoa(int n);
 char			*ft_itoa_base(int n, int base);
 char			*ft_itoa_BASE(int n, int base);
+char			*ft_lltoa(long long int n);
+char			*ft_lltoa_base(long long int n, int base);
+char			*ft_ulltoa_base(unsigned long long int n, int base);
+char			*ft_ulltoa_BASE(unsigned long long int n, int base);
+char			*ft_ulltoa(unsigned long long int n);
 
 #endif

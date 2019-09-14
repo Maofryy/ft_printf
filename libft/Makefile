@@ -34,6 +34,8 @@ SRC_NAME = ft_atoi.c \
 	   ft_itoa.c \
 	   ft_lltoa.c \
 	   ft_itoa_base.c \
+	   ft_lltoa_base.c \
+	   ft_ulltoa_base.c \
 	   ft_lstadd.c \
 	   ft_lstdel.c \
 	   ft_lstdelone.c \

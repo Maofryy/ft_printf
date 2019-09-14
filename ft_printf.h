@@ -53,4 +53,11 @@ void			ft_dtoa(long double n, char *str, int after);
 void			ft_ret_addr_str(void *p, char *str);
 void			ft_reverse_str(char *str, int len);
 
+char			*ret_str_int(t_flags fl, char *str, long long int n);
+char			*ret_str_uint(t_flags fl, char *str, unsigned long long n);
+char			*ret_str_uchar(t_flags fl, char *str, unsigned long long n);
+char			*ret_str_xint(t_flags fl, char *str, unsigned long long n);
+char			*ret_str_Xint(t_flags fl, char *str, unsigned long long n);
+
+
 #endif
