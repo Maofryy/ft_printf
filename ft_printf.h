@@ -32,6 +32,7 @@ typedef struct	s_flags
 	int	fl_pr;
 	int	fl_sc;
 	int	fl_cv;
+	int	fl_cv_sign;
 }				t_flags;
 
 int			ft_printf(const char * restrict format, ...);

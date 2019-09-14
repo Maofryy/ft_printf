@@ -18,7 +18,7 @@ t_flags		flags_init(void)
 	int	*p;
 
 	p = &fl.fl_sharp;
-	while (p <= &fl.fl_cv)
+	while (p <= &fl.fl_cv_sign)
 	{
 		*p = -1;
 		p++;
@@ -33,7 +33,7 @@ void		flags_print(t_flags fl)
 
 	p = &fl.fl_sharp;
 	printf("\n");
-	while (p <= &fl.fl_cv)
+	while (p <= &fl.fl_cv_sign)
 	{
 		printf("Character #%ld = %d \n", p - &fl.fl_sharp, *p);
 		p++;

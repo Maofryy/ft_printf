@@ -103,15 +103,19 @@ int main(int ac, char **av) {
 	*/
 
 	//------------------FLAGS TESTS------------------------------
-
+	/*
 	printf("rl :Hey try this octal char : %#0o\n", (unsigned char)n);
 	printf("rl :Hey try this lower hexa : %#x\n", (unsigned int)n);
 	printf("rl :Hey try this upper hexa : %#X\n", (unsigned int)n);
 	printf("rl :Hey try this float : %#.f\n", sep);
+	printf("rl :Hey try this float : % f\n", sep);
+	printf("rl :Hey try this float : % f\n", -sep);
 	ft_printf("ft :Hey try this octal char : %#0o\n", (unsigned char)n);
 	ft_printf("ft :Hey try this lower hexa : %#x\n", (unsigned int)n);
 	ft_printf("ft :Hey try this upper hexa : %#X\n", (unsigned int)n);
 	ft_printf("ft :Hey try this float : %#.f\n", sep);
+	ft_printf("ft :Hey try this float : % f\n", sep);*/
+	ft_printf("ft :Hey try this float : % f\n", -sep);
 	
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
