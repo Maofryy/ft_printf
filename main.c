@@ -17,7 +17,7 @@ int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
 
-	int n = 775805;
+	int n = -775805;
 	float sep = 9147483.647;
 	//char str[] = "Hey this is a string";
 
@@ -89,7 +89,7 @@ int main(int ac, char **av) {
 	*/	
 
 	//-------------------WIDTH TESTS------------------------------------
-	/*
+	
 	printf("rl :Hey try this float with fw 9 : %9d\n", n);
 	printf("rl :Hey try this float with fw 9 - : %-9d\n", n);
 	printf("rl :Hey try this float with fw 9 0 : %09d\n", n);
@@ -100,7 +100,7 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this float with fw 9 0 : %09d\n", n);
 	ft_printf("ft :Hey try this float with fw 3 0 : %03d\n", n);
 	ft_printf("ft :Hey try this float with fw 3 : %3d\n", n);
-	*/
+	
 
 	//------------------FLAGS TESTS------------------------------
 	/*

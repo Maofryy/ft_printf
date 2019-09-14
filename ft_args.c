@@ -203,5 +203,6 @@ char	*conv_arg(t_flags fl, va_list ap)
 	str = check_fieldwidth(fl, str);
 	if (fl.fl_sharp == 1)
 		str = process_sharp(fl, str);
+
 	return (str);
 }

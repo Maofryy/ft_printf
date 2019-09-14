@@ -46,17 +46,26 @@ void ft_reverse_str(char *str, int len)
 int	ft_ltoa_d(long long n, char *str, int d)
 {
 	int i;
+	int sign;
 
 	i = 0;
+	sign = 1;
 	if (n == 0)
 		str[i++] = '0';
+	if (n < 0)
+	{
+		sign = -1;
+		n *= -1;
+	}
 	while (n) 
 	{ 
 		str[i++] = (n%10) + '0'; 
 		n = n/10; 
 	}
 	while (i < d) 
-		str[i++] = '0'; //Ce char depends des flags, donc peut etre passer le char a la fonction en lisant les flags 0-+# 
+		str[i++] = '0'; //Ce char depends des flags, donc peut etre passer le char a la fonction en lisant les flags 0-+#
+	if (sign == -1)
+		str[i++]='-';
 	ft_reverse_str(str, i);
 	str[i] = '\0';
 	return i;
