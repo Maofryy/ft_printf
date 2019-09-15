@@ -9,8 +9,8 @@ static char	ft_base_char(int n)
 
 char		*ft_lltoa_base(long long n, int base)
 {
-	unsigned int	value;
-	int				count;
+	unsigned long long int	value;
+	int			count;
 	char			*str;
 
 	if (base < 2 || base > 36)

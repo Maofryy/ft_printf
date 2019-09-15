@@ -17,8 +17,8 @@ static char	ft_BASE_char(int n)
 
 char		*ft_ulltoa_base(unsigned long long n, int base)
 {
-	unsigned int	value;
-	int				count;
+	unsigned long long int	value;
+	int			count;
 	char			*str;
 
 	if (base < 2 || base > 36)
@@ -45,10 +45,9 @@ char		*ft_ulltoa_base(unsigned long long n, int base)
 
 char		*ft_ulltoa_BASE(unsigned long long n, int base)
 {
-	unsigned int	value;
-	int				count;
+	unsigned long long int	value;
+	int			count;
 	char			*str;
-	printf("\n hey : %lu\n", (unsigned long)n);
 
 	if (base < 2 || base > 36)
 		return (NULL);

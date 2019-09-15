@@ -28,6 +28,7 @@ int ft_printf(const char * restrict format, ...)
 	{
 		if ((ret = get_to_arg((char **)&format)) == -1)
 		{
+			count += ft_strlen(format);
 			ft_putstr((char *)format);
 			return (count);
 		}

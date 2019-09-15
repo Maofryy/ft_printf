@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 char	*read_fmt(t_flags fl)
 {
@@ -24,6 +25,8 @@ char	*print_char(char c)
 
 	str = &c;
 	str[1] = '\0';
+	if (c == 0)
+		ft_putchar(0);
 	return (str);
 }
 
@@ -37,7 +40,7 @@ char	*ret_str_float(t_flags fl, char *str, long double f)
 		ft_dtoa((float)f, str, fl.fl_pr);
 	else
 		return (NULL);//attention a retourner erreur et finir le prog si pas bon
-				//mais de toute facon va y a voir la fonction check flags pour tout ca donc bon...
+	//mais de toute facon va y a voir la fonction check flags pour tout ca donc bon...
 	return (str);
 }
 
@@ -50,8 +53,14 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 	}
 	else if (fl.fl_cv == 2)//s: string
 	{
+		char *nul;
+
+		nul = ft_strdup("(null)");
 		str = (char *)va_arg(ap, char *);
-		str[fl.fl_pr] = '\0'; //need to realloc	
+		if (str == 0)
+			str = nul;
+		if (fl.fl_pr != -1)
+			str[fl.fl_pr] = '\0'; //need to realloc	
 		return (str);
 	}
 	else if (fl.fl_cv == 3)//p: pointer
@@ -75,7 +84,7 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 	{
 		free(str);
 		str = ret_str_uint(fl, str, (unsigned long long)va_arg(ap, \
-unsigned int));
+					unsigned long long int));
 		return (str);
 	}
 	else if (fl.fl_cv == 7)//x: hexa lowercase
@@ -113,7 +122,10 @@ char	*check_int_pr(int pr, char *str)
 		//add missing zeros
 		ft_reverse_str(str, i);
 	}
-	str[i] = '\0';
+	if (pr == 0 && ft_strcmp(str,0) == 0)
+		str[0] = 0;
+	else
+		str[i] = '\0';
 	return (str);
 }
 
@@ -145,28 +157,31 @@ char	*process_sharp(t_flags fl, char *str)
 	int i;
 
 	i = ft_strlen(str);
-	if (fl.fl_cv == 5 && str[0] != '0')
+	if (ft_strcmp(str, "0") != 0)
 	{
-		ft_reverse_str(str, i);
-		str[i++]='0';
-		ft_reverse_str(str, i);
-		str[i] = '\0';
-	}
-	else if (fl.fl_cv == 9 && fl.fl_pr == 0)
-	{
-		str[i] = '.';
-		str[i + 1] = '\0';
-	}
-	else if (fl.fl_cv == 7 || fl.fl_cv == 8)
-	{
-		ft_reverse_str(str, i);
-		if (fl.fl_cv == 7)
-			str[i++] = 'x';
-		else
-			str[i++] = 'X';
-		str[i++] = '0';
-		ft_reverse_str(str, i);
-		str[i]='\0';
+		if (fl.fl_cv == 5 && str[0] != '0')
+		{
+			ft_reverse_str(str, i);
+			str[i++]='0';
+			ft_reverse_str(str, i);
+			str[i] = '\0';
+		}
+		else if (fl.fl_cv == 9 && fl.fl_pr == 0)
+		{
+			str[i] = '.';
+			str[i + 1] = '\0';
+		}
+		else if (fl.fl_cv == 7 || fl.fl_cv == 8)
+		{
+			ft_reverse_str(str, i);
+			if (fl.fl_cv == 7)
+				str[i++] = 'x';
+			else
+				str[i++] = 'X';
+			str[i++] = '0';
+			ft_reverse_str(str, i);
+			str[i]='\0';
+		}
 	}
 	return (str);
 }
@@ -201,7 +216,7 @@ char	*process_sign_flags(t_flags fl, char *str)
 
 char	*conv_arg(t_flags fl, va_list ap)
 {
-//	char	*fmt;
+	//	char	*fmt;
 
 	//be careful and malloc correctly the void pointer
 	//fmt = read_fmt(fl);
@@ -210,13 +225,14 @@ char	*conv_arg(t_flags fl, va_list ap)
 
 	str = (char *)malloc(sizeof(char *)*30);
 	str = print_arg(fl, str, ap);
-	if (fl.fl_cv <= 8 || fl.fl_cv >= 4)
+	if (fl.fl_cv <= 8 && fl.fl_cv >= 4)
 		str = check_int_pr(fl.fl_pr, str);
 	if (str[0] != '-')
 		fl.fl_cv_sign = 1;
-	str = check_fieldwidth(fl, str);
 	if (fl.fl_sharp == 1)
 		str = process_sharp(fl, str);
-	str = process_sign_flags(fl, str);
+	if (fl.fl_cv == 4)
+		str = process_sign_flags(fl, str);
+	str = check_fieldwidth(fl, str);
 	return (str);
 }

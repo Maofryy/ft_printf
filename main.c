@@ -120,9 +120,8 @@ int main(int ac, char **av) {
 	*/
 
 	//---------------------42FC TESTS---------------------------------
-	printf("rl : %lx", 4294967296);
-	ft_printf("ft : %lx", 4294967296);
-	
+	printf("rl : %.x\n", 0);
+	ft_printf("ft : %.x\n", 0);
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)
