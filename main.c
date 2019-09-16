@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/16 12:35:47 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 12:59:22 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,15 @@ int main(int ac, char **av) {
 
 	//---------------------42FC TESTS---------------------------------
 	
-	printf("rl : %#x\n", 10);
-	ft_printf("ft : %#x\n", 10);
-	printf("rl : @moulitest: %.d %.0d\n", 42, 43);
+	printf("rl : %+05d\n", 10);
+	printf("rl : %+5d\n", 10);
+	printf("rl : %+5d\n", -10);
+	printf("rl : % 05d\n", 10);
+	ft_printf("ft : %+05d\n", 10);
+	ft_printf("ft : %+5d\n", 10);
+	ft_printf("ft : %+5d\n", -10);
+	ft_printf("ft : % 05d\n", 10);
+	/*printf("rl : @moulitest: %.d %.0d\n", 42, 43);
 	ft_printf("fl : @moulitest: %.d %.0d\n", 42, 43);
 	printf("rl : %u\n", 0);
 	ft_printf("ft : %u\n", 0);
@@ -135,7 +141,7 @@ int main(int ac, char **av) {
 	ft_printf("ft : @moulitest: %#.o %#0.o\n", 0, 0);
 	printf("rl : %lld\n", -9223372036854775808);
 	ft_printf("ft : %lld\n", -9223372036854775808);
-	
+	*/
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)

@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:49:41 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/16 12:35:30 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 13:59:24 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ char	*check_fieldwidth(t_flags fl, char *str)
 			ft_reverse_str(str, i);
 		if (fl.fl_zero == 1 && fl.fl_minus != 1)
 			c = '0';
-		while (i < fl.fl_fw)
+		while (i < fl.fl_fw - shift)
 			str[i++]=c;
 		//add missing zeros
 		if (fl.fl_minus != 1)
@@ -188,16 +188,22 @@ char	*process_sharp(t_flags fl, char *str)
 char	*process_sign_flags(t_flags fl, char *str)
 {
 	int i;
+	int j;
 
 	i = ft_strlen(str);
+	j = 0;
 	if (fl.fl_plus == 1)
 	{
 		if (fl.fl_cv_sign == 1)
 		{
 			ft_reverse_str(str, i);
+			while (str[--i] == ' ')
+				j++;
+			i++;
 			str[i++]='+';
+			while (j-- > 0)
+				str[i++] = ' ';
 			ft_reverse_str(str, i);
-			str[i++]='\0';
 		}
 	}
 	else if (fl.fl_space == 1)
