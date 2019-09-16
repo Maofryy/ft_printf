@@ -23,8 +23,8 @@ char		*ft_ulltoa_base(unsigned long long n, int base)
 
 	if (base < 2 || base > 36)
 		return (NULL);
-	value = (n < 0) ? -n : n;
-	count = (n == 0 || (n < 0 && base == 10));
+	value = n;
+	count = (n == 0);
 	while (value != 0)
 	{
 		value /= base;
@@ -33,13 +33,13 @@ char		*ft_ulltoa_base(unsigned long long n, int base)
 	if (!(str = (char *)malloc(sizeof(*str) * (count + 1))))
 		return (NULL);
 	str[count] = '\0';
-	value = (n < 0) ? -n : n;
+	value = n;
 	while (--count > 0)
 	{
 		str[count] = ft_base_char(value % base);
 		value /= base;
 	}
-	*str = (n < 0 && base == 10 ? '-' : ft_base_char(value));
+	*str = ft_base_char(value);
 	return (str);
 }
 
@@ -51,8 +51,8 @@ char		*ft_ulltoa_BASE(unsigned long long n, int base)
 
 	if (base < 2 || base > 36)
 		return (NULL);
-	value = (n < 0) ? -n : n;
-	count = (n == 0 || (n < 0 && base == 10));
+	value = n;
+	count = (n == 0);
 	while (value != 0)
 	{
 		value /= base;
@@ -61,13 +61,13 @@ char		*ft_ulltoa_BASE(unsigned long long n, int base)
 	if (!(str = (char *)malloc(sizeof(*str) * (count + 1))))
 		return (NULL);
 	str[count] = '\0';
-	value = (n < 0) ? -n : n;
+	value = n;
 	while (--count > 0)
 	{
 		str[count] = ft_BASE_char(value % base);
 		value /= base;
 	}
-	*str = (n < 0 && base == 10 ? '-' : ft_BASE_char(value));
+	*str = ft_BASE_char(value);
 	return (str);
 }
 

@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/09/09 17:35:04 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/09/16 11:02:30 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,7 @@ SRC_NAME = ft_atoi.c \
 	   ft_sqrt.c \
 	   ft_strcapitalize.c \
 	   ft_strnjoinfree.c \
+	   ft_reverse.c \
 	   get_next_line.c 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

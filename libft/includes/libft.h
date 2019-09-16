@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 17:30:27 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 11:01:06 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ char			*ft_lltoa_base(long long int n, int base);
 char			*ft_ulltoa_base(unsigned long long int n, int base);
 char			*ft_ulltoa_BASE(unsigned long long int n, int base);
 char			*ft_ulltoa(unsigned long long int n);
+void 			ft_reverse_str(char *str, int len);
 
 #endif

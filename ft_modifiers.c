@@ -20,8 +20,8 @@ char	*ret_str_int(t_flags fl, char *str, long long int n)
 
 char	*ret_str_Xint(t_flags fl, char *str, unsigned long long int n)
 {
-	if (n == 0)
-		return (ft_strdup("0"));
+	//if (n == 0)
+	//	return (ft_strdup("0"));
 	if (fl.fl_sc == 1)
 		str = ft_ulltoa_BASE((unsigned char)n, 16);
 	else if (fl.fl_sc == 2)
@@ -75,8 +75,8 @@ char	*ret_str_uchar(t_flags fl, char *str, unsigned long long n)
 
 char	*ret_str_uint(t_flags fl, char *str, unsigned long long int n)
 {
-	if (n == 0)	
-		return (NULL);
+	//if (n == 0)	
+	//	return (NULL);
 	if (fl.fl_sc == 1)
 		str = ft_ulltoa((unsigned char)n);
 	else if (fl.fl_sc == 2)

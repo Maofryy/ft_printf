@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:49:41 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 17:51:56 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 12:35:30 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,9 @@ char	*print_arg(t_flags fl, char *str, va_list ap)
 	}
 	else if (fl.fl_cv == 2)//s: string
 	{
-		char *nul;
-
-		nul = ft_strdup("(null)");
 		str = (char *)va_arg(ap, char *);
 		if (str == 0)
-			str = nul;
+			str = ft_strdup("(null)");
 		if (fl.fl_pr != -1)
 			str[fl.fl_pr] = '\0'; //need to realloc	
 		return (str);
@@ -122,7 +119,7 @@ char	*check_int_pr(int pr, char *str)
 		//add missing zeros
 		ft_reverse_str(str, i);
 	}
-	if (pr == 0 && ft_strcmp(str,0) == 0)
+	if (pr == 0 && ft_strcmp(str,"0") == 0)
 		str[0] = 0;
 	else
 		str[i] = '\0';
@@ -132,11 +129,13 @@ char	*check_int_pr(int pr, char *str)
 char	*check_fieldwidth(t_flags fl, char *str)
 {
 	int i;
-	char c;
+	int shift;
+	char c;// Be careful about alragdy printed - maybe stock it and put it back later
 
 	i = ft_strlen(str);
 	c = ' ';
-	if (i < fl.fl_fw)
+	shift = (fl.fl_space == 1 || fl.fl_plus == 1) ? 1 : 0;
+	if (i < fl.fl_fw - shift)
 	{
 		if (fl.fl_minus != 1)
 			ft_reverse_str(str, i);
@@ -157,7 +156,7 @@ char	*process_sharp(t_flags fl, char *str)
 	int i;
 
 	i = ft_strlen(str);
-	if (ft_strcmp(str, "0") != 0)
+	if (i != 0 && fl.fl_pr != 0 && ft_strcmp(str, "0") != 0)
 	{
 		if (fl.fl_cv == 5 && str[0] != '0')
 		{
@@ -231,8 +230,8 @@ char	*conv_arg(t_flags fl, va_list ap)
 		fl.fl_cv_sign = 1;
 	if (fl.fl_sharp == 1)
 		str = process_sharp(fl, str);
-	if (fl.fl_cv == 4)
-		str = process_sign_flags(fl, str);
 	str = check_fieldwidth(fl, str);
+	if (fl.fl_cv == 4 || fl.fl_cv == 9)
+		str = process_sign_flags(fl, str);
 	return (str);
 }

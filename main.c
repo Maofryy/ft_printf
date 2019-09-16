@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 17:52:58 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 12:35:47 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,24 +104,38 @@ int main(int ac, char **av) {
 	*/
 
 	//------------------FLAGS TESTS------------------------------
-	/*	
-	printf("rl :Hey try this octal char : %#0o\n", (unsigned char)n);
+		
+	/*printf("rl :Hey try this octal char : %#0o\n", (unsigned char)n);
 	printf("rl :Hey try this lower hexa : %#x\n", (unsigned int)n);
 	printf("rl :Hey try this upper hexa : %#X\n", (unsigned int)n);
 	printf("rl :Hey try this float : % .f\n", sep);
-	printf("rl :Hey try this float : % f\n", sep);
+	printf("rl :Hey try this float : %+f\n", sep);
 	printf("rl :Hey try this float : % f\n", -sep);
 	ft_printf("ft :Hey try this octal char : %#0o\n", (unsigned char)n);
 	ft_printf("ft :Hey try this lower hexa : %#x\n", (unsigned int)n);
 	ft_printf("ft :Hey try this upper hexa : %#X\n", (unsigned int)n);
 	ft_printf("ft :Hey try this float : % .f\n", sep);
-	ft_printf("ft :Hey try this float : % f\n", sep);
-	ft_printf("ft :Hey try this float : % f\n", -sep);
-	*/
+	ft_printf("ft :Hey try this float : %+f\n", sep);
+	printf("rl :Hey try this float : % f\n", -sep);
+	ft_printf("ft :Hey try this float : % f\n", -sep);*/
+	
 
 	//---------------------42FC TESTS---------------------------------
-	printf("rl : %.x\n", 0);
-	ft_printf("ft : %.x\n", 0);
+	
+	printf("rl : %#x\n", 10);
+	ft_printf("ft : %#x\n", 10);
+	printf("rl : @moulitest: %.d %.0d\n", 42, 43);
+	ft_printf("fl : @moulitest: %.d %.0d\n", 42, 43);
+	printf("rl : %u\n", 0);
+	ft_printf("ft : %u\n", 0);
+	printf("rl : @moulitest: %o %0o\n", 0, 0);
+	ft_printf("ft : @moulitest: %o %0o\n", 0, 0);
+	printf("rl : @moulitest: %#.o %#0.o\n", 0, 0);
+	ft_printf("ft : @moulitest: %#.o %#0.o\n", 0, 0);
+	ft_printf("ft : @moulitest: %#.o %#0.o\n", 0, 0);
+	printf("rl : %lld\n", -9223372036854775808);
+	ft_printf("ft : %lld\n", -9223372036854775808);
+	
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)

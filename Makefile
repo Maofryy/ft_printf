@@ -16,10 +16,12 @@ WHITE = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ) ft_printf.h
-	$(MAKE) -C libft
+$(NAME): $(LIBFT) $(OBJ) ft_printf.h 
 	cp $(LIBFT) $@
 	ar rcs $@ $(OBJ) && echo "$(GREEN)$@ successfully created$(WHITE)"
+
+$(LIBFT) :
+	$(MAKE) -C libft
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(LIBFLAGS) -o $@ -c $< && echo "$(GREEN)$@$(WHITE)"

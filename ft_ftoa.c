@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:33:55 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 15:54:55 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 11:01:28 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,6 @@ long double ft_fround(long double n)
 	return ((long double)ipart);
 }
 
-void ft_reverse_str(char *str, int len) 
-{ 
-	int i;
-	int j;
-	int temp;
-
-	i = 0;
-	j = len-1;
-	while (i<j) 
-	{ 
-		temp = str[i]; 
-		str[i] = str[j]; 
-		str[j] = temp; 
-		i++; j--; 
-	} 
-} 
-#include <stdio.h>
 int	ft_ltoa_d(long long n, char *str, int d)
 {
 	int i;
