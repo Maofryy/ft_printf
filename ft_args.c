@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:49:41 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/16 13:59:24 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/18 11:18:16 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,26 +126,52 @@ char	*check_int_pr(int pr, char *str)
 	return (str);
 }
 
-char	*check_fieldwidth(t_flags fl, char *str)
+int	ft_remove_minus(char **str)
 {
 	int i;
-	int shift;
-	char c;// Be careful about alragdy printed - maybe stock it and put it back later
+	int ret;
+	
+	i = ft_strlen(*str);
+	ret = 1;
+	ft_reverse_str(*str, i);
+	if (*str[i - 1] == '-')
+	{
+		*str[i - 1] == 0;
+		ret = -1;
+	}
+	ft_reverse_str(*str, i - 1);
+	return (ret);
+}
+
+char	*check_fieldwidth(t_flags fl, char *str)
+{
+	int 	i;
+	int		sign;
+	int		shift;
+	char	c;// Be careful about alragdy printed - maybe stock it and put it back later
 
 	i = ft_strlen(str);
 	c = ' ';
 	shift = (fl.fl_space == 1 || fl.fl_plus == 1) ? 1 : 0;
+	sign = 0;
 	if (i < fl.fl_fw - shift)
 	{
 		if (fl.fl_minus != 1)
 			ft_reverse_str(str, i);
 		if (fl.fl_zero == 1 && fl.fl_minus != 1)
+		{
 			c = '0';
+			sign = ft_remove_minus(str);
+		}
 		while (i < fl.fl_fw - shift)
 			str[i++]=c;
 		//add missing zeros
 		if (fl.fl_minus != 1)
+		{
+			if (sign == -1 && fl.fl_zero == 1)
+				str[i++] = '-';
 			ft_reverse_str(str, i);
+		}
 	}
 	str[i] = '\0';
 	return (str);
