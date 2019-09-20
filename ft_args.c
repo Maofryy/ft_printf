@@ -136,7 +136,7 @@ int	ft_remove_minus(char **str)
 	ft_reverse_str(*str, i);
 	if (*str[i - 1] == '-')
 	{
-		*str[i - 1] == 0;
+		*str[i - 1] = 0;
 		ret = -1;
 	}
 	ft_reverse_str(*str, i - 1);
@@ -152,7 +152,7 @@ char	*check_fieldwidth(t_flags fl, char *str)
 
 	i = ft_strlen(str);
 	c = ' ';
-	shift = (fl.fl_space == 1 || fl.fl_plus == 1) ? 1 : 0;
+	shift = ((fl.fl_space == 1 || fl.fl_plus == 1)  && str[0] != '-') ? 1 : 0;
 	sign = 0;
 	if (i < fl.fl_fw - shift)
 	{
@@ -161,7 +161,7 @@ char	*check_fieldwidth(t_flags fl, char *str)
 		if (fl.fl_zero == 1 && fl.fl_minus != 1)
 		{
 			c = '0';
-			sign = ft_remove_minus(str);
+			sign = ft_remove_minus(&str);
 		}
 		while (i < fl.fl_fw - shift)
 			str[i++]=c;

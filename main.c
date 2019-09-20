@@ -17,8 +17,8 @@ int main(int ac, char **av) {
 	(void)ac;
 	(void)av;
 
-	int n = -7805;
-	float sep = -9147483.647;
+	//int n = -7805;
+	//float sep = -9147483.647;
 	//char str[] = "Hey this is a string";
 
 	//void *p = &str;
