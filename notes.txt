@@ -1,10 +1,14 @@
-Rethink the returned value, some time missed read\returned chars, maybe just return strlen idk
-Work on special interactions between # and field width 0+_...
-Field width with char
+Work on Seg fault when unfinihed, % sequence, currently segfaulting
+Work on char displaying of null character, with field width options and all
+maybe like dedicated functions or what not
+
+Have a crack at what differs from return values actually, like the double %
+Look for ending the function with a warning (undefined behavior exits)
+
+After that check for leaks or just do some correct mallocs
+Build a free all function (nothing much to free but the char * seems like)
 
 Write error messages and proper free exit
 
 Clean the calls of stdio a bit everywhere, begin to change functions file names and normalize a bit
-Check out leaks @42 on Monday 16
-Get trhough 42fc
 Et hope on se lance pour se faire corriger

@@ -13,6 +13,14 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+int	is_signed(t_flags fl)
+{
+	int ret;
+
+	ret = (fl.fl_cv == 4 || fl.fl_cv == 9) ? 1 : 0;
+	return (ret);
+}
+
 char	*read_fmt(t_flags fl)
 {
 	char *fmt[] = {"char", "char *", "void *", "int"};
@@ -130,20 +138,22 @@ int	ft_remove_minus(char **str)
 {
 	int i;
 	int ret;
+	char *tmp;
 	
-	i = ft_strlen(*str);
+	tmp = *str;
+	i = ft_strlen(tmp);
 	ret = 1;
-	ft_reverse_str(*str, i);
-	if (*str[i - 1] == '-')
+	if (tmp[0] == '-')
 	{
-		*str[i - 1] = 0;
+		ft_reverse_str(*str, i);
+		(*str)[i - 1] = 0;
 		ret = -1;
+		ft_reverse_str(*str, i - 1);
 	}
-	ft_reverse_str(*str, i - 1);
 	return (ret);
 }
 
-char	*check_fieldwidth(t_flags fl, char *str)
+char	*check_fieldwidth_zeros(t_flags fl, char *str)
 {
 	int 	i;
 	int		sign;
@@ -151,27 +161,43 @@ char	*check_fieldwidth(t_flags fl, char *str)
 	char	c;// Be careful about alragdy printed - maybe stock it and put it back later
 
 	i = ft_strlen(str);
-	c = ' ';
+	c = '0';
 	shift = ((fl.fl_space == 1 || fl.fl_plus == 1)  && str[0] != '-') ? 1 : 0;
 	sign = 0;
-	if (i < fl.fl_fw - shift)
+	if (i < fl.fl_fw - shift && fl.fl_minus != 1 && fl.fl_zero == 1)
+	{
+		if (is_signed(fl) == 1)
+			sign = ft_remove_minus(&str);
+		ft_reverse_str(str, i);
+		while (i < fl.fl_fw - shift)
+			str[i++]=c;
+		ft_reverse_str(str, i);
+		if (sign == -1)
+		{
+			ft_reverse_str(str, i);
+			str[i++] = '-';
+			ft_reverse_str(str, i);
+		}
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+char	*check_fieldwidth_spaces(t_flags fl, char *str)
+{
+	int 	i;
+	char	c;// Be careful about alragdy printed - maybe stock it and put it back later
+
+	i = ft_strlen(str);
+	c = ' ';
+	if (i < fl.fl_fw)
 	{
 		if (fl.fl_minus != 1)
 			ft_reverse_str(str, i);
-		if (fl.fl_zero == 1 && fl.fl_minus != 1)
-		{
-			c = '0';
-			sign = ft_remove_minus(&str);
-		}
-		while (i < fl.fl_fw - shift)
+		while (i < fl.fl_fw)
 			str[i++]=c;
-		//add missing zeros
 		if (fl.fl_minus != 1)
-		{
-			if (sign == -1 && fl.fl_zero == 1)
-				str[i++] = '-';
 			ft_reverse_str(str, i);
-		}
 	}
 	str[i] = '\0';
 	return (str);
@@ -182,21 +208,21 @@ char	*process_sharp(t_flags fl, char *str)
 	int i;
 
 	i = ft_strlen(str);
-	if (i != 0 && fl.fl_pr != 0 && ft_strcmp(str, "0") != 0)
+	if (ft_strcmp(str, "0") != 0)
 	{
-		if (fl.fl_cv == 5 && str[0] != '0')
+		if (fl.fl_cv == 5)
 		{
 			ft_reverse_str(str, i);
 			str[i++]='0';
 			ft_reverse_str(str, i);
 			str[i] = '\0';
 		}
-		else if (fl.fl_cv == 9 && fl.fl_pr == 0)
+		else if (i != 0 && fl.fl_cv == 9 && fl.fl_pr == 0)
 		{
 			str[i] = '.';
 			str[i + 1] = '\0';
 		}
-		else if (fl.fl_cv == 7 || fl.fl_cv == 8)
+		else if (i != 0 && (fl.fl_cv == 7 || fl.fl_cv == 8))
 		{
 			ft_reverse_str(str, i);
 			if (fl.fl_cv == 7)
@@ -260,10 +286,11 @@ char	*conv_arg(t_flags fl, va_list ap)
 		str = check_int_pr(fl.fl_pr, str);
 	if (str[0] != '-')
 		fl.fl_cv_sign = 1;
+	str = check_fieldwidth_zeros(fl, str);
 	if (fl.fl_sharp == 1)
 		str = process_sharp(fl, str);
-	str = check_fieldwidth(fl, str);
 	if (fl.fl_cv == 4 || fl.fl_cv == 9)
 		str = process_sign_flags(fl, str);
+	str = check_fieldwidth_spaces(fl, str);
 	return (str);
 }

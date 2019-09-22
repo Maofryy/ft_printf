@@ -122,14 +122,14 @@ int main(int ac, char **av) {
 
 	//---------------------42FC TESTS---------------------------------
 	
-	printf("rl : %+05d\n", 10);
-	printf("rl : %+5d\n", 10);
-	printf("rl : %+5d\n", -10);
-	printf("rl : % 05d\n", 10);
-	ft_printf("ft : %+05d\n", 10);
-	ft_printf("ft : %+5d\n", 10);
-	ft_printf("ft : %+5d\n", -10);
-	ft_printf("ft : % 05d\n", 10);
+	//printf("rl : %+05d\n", 10);
+	//printf("rl : %+5d\n", 10);
+	//printf("rl : %+5d\n", -10);
+	printf("rl : %+05d\n", 42);
+	//ft_printf("ft : %+05d\n", 10);
+	//ft_printf("ft : %+5d\n", 10);
+	//ft_printf("ft : %+5d\n", -10);
+	ft_printf("ft : %+05d\n", 42);
 	/*printf("rl : @moulitest: %.d %.0d\n", 42, 43);
 	ft_printf("fl : @moulitest: %.d %.0d\n", 42, 43);
 	printf("rl : %u\n", 0);
@@ -142,6 +142,13 @@ int main(int ac, char **av) {
 	printf("rl : %lld\n", -9223372036854775808);
 	ft_printf("ft : %lld\n", -9223372036854775808);
 	*/
+	//printf("rl : %010x\n", 542);
+	//ft_printf("ft : %010x\n", 542);
+	
+	printf("rl : @moulitest: %#.o %#.0o\n", 0, 0);	
+	printf("rl : @moulitest: %#o %#0o\n", 0, 0);	
+	ft_printf("ft : @moulitest: %#.o %#.0o\n", 0, 0);	
+	ft_printf("ft : @moulitest: %#o %#0o\n", 0, 0);	
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)
