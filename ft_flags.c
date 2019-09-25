@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:48:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 14:17:50 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/25 11:22:25 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_flags		flags_init(void)
 	int	*p;
 
 	p = &fl.fl_sharp;
-	while (p <= &fl.fl_cv_sign)
+	while (p <= &fl.fl_err)
 	{
 		*p = -1;
 		p++;
@@ -40,11 +40,19 @@ void		flags_print(t_flags fl)
 	}
 }
 
+t_flags			flags_err(t_flags *fl)
+{
+	fl->fl_err = -1;
+	return (*fl);
+}
+
 t_flags		read_flags(char ** p)
 {
 	t_flags fl;
 
 	fl = flags_init();
+	if (**p == 0)
+		return (flags_err(&fl));
 	while (is_format_flag(**p, &fl))
 		(*p)++;
 	if (IS_NUM((int)**p))

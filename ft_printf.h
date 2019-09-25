@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:27:03 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 16:31:33 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/25 10:39:45 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_flags
 	int	fl_sc;
 	int	fl_cv;
 	int	fl_cv_sign;
+	int	fl_err;
 }				t_flags;
 
 int			ft_printf(const char * restrict format, ...);

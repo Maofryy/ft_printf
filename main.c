@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/16 12:59:22 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/25 10:10:30 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,11 +125,11 @@ int main(int ac, char **av) {
 	//printf("rl : %+05d\n", 10);
 	//printf("rl : %+5d\n", 10);
 	//printf("rl : %+5d\n", -10);
-	printf("rl : %+05d\n", 42);
+	//printf("rl : %+05d\n", 42);
 	//ft_printf("ft : %+05d\n", 10);
 	//ft_printf("ft : %+5d\n", 10);
 	//ft_printf("ft : %+5d\n", -10);
-	ft_printf("ft : %+05d\n", 42);
+	//ft_printf("ft : %+05d\n", 42);
 	/*printf("rl : @moulitest: %.d %.0d\n", 42, 43);
 	ft_printf("fl : @moulitest: %.d %.0d\n", 42, 43);
 	printf("rl : %u\n", 0);
@@ -145,10 +145,11 @@ int main(int ac, char **av) {
 	//printf("rl : %010x\n", 542);
 	//ft_printf("ft : %010x\n", 542);
 	
-	printf("rl : @moulitest: %#.o %#.0o\n", 0, 0);	
-	printf("rl : @moulitest: %#o %#0o\n", 0, 0);	
-	ft_printf("ft : @moulitest: %#.o %#.0o\n", 0, 0);	
-	ft_printf("ft : @moulitest: %#o %#0o\n", 0, 0);	
+	//printf("rl : @moulitest: %#.o %#.0o\n", 0, 0);	
+	//printf("rl : @moulitest: %#o %#0o\n", 0, 0);	
+	//ft_printf("ft : @moulitest: %#.o %#.0o\n", 0, 0);	
+	//ft_printf("ft : @moulitest: %#o %#0o\n", 0, 0);	
+	ft_printf("ft : %d%", 0);
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)

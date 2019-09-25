@@ -1,3 +1,5 @@
+Besoin de chabger le global, faire une liste de s_flags, check si tout est bien sans erreur puis proceder au traitement et a l'affichage ?
+
 Work on Seg fault when unfinihed, % sequence, currently segfaulting
 Work on char displaying of null character, with field width options and all
 maybe like dedicated functions or what not

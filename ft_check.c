@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 13:40:46 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 12:48:48 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/25 10:36:39 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ void	ft_putnstr(char * str, int n)
 		ft_putchar(str[i++]);
 }
 
+int		ft_arg_error()
+{
+	ft_putstr("arg error");
+	return (0);
+}
+
 int		get_to_arg(char ** p)
 {
 	char *s;
@@ -29,13 +35,15 @@ int		get_to_arg(char ** p)
 	s = ft_strchr(*p, '%');
 	//ft_putnstr(*p, (int)(s - *p));
 	//Handle the double %
+	if (s + 1 == 0)
+		return (ft_arg_error());
 	if (s == NULL)
 		return (-1);
 	else if (s[1] == '%')
 	{
 		ft_putnstr(*p, (int)(s - *p + 1));
 		*p = s + 2;
-		return (get_to_arg(p));
+		return (get_to_arg(p) + 1);
 	}
 	else
 	{
@@ -49,10 +57,15 @@ int		get_to_arg(char ** p)
 
 int	check_args(char * format)
 {
+	int ret;
 	// Check if number of args is okay, use va_copy and count, cant do that with varidic function actually
+	ret = 1;
 	while (*format)
 	{
-		get_to_arg(&format);
+		ret = get_to_arg(&format);
+		ft_putstr("\nret = ");
+		ft_putnbr(ret);
+		ft_putchar('\n');
 		if (*++format == '%')
 		{
 			format++;
