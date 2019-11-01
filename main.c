@@ -193,7 +193,7 @@ int main(int ac, char **av) {
 	// ft_printf("%U", 4294967296);
 	// ft_printf("%U", 4294967295);
 
-	ft_printf("%%");
+	ft_printf("%i", 42);
 
 	// ft_printf("ft : %15f\n", 10.0f);
 	// ft_printf("ft : %-15f\n", 10.0f);

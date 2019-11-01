@@ -90,11 +90,14 @@ int		is_conv(char **pstr, t_flags *f)
 {
 	//const char str[] = "cspdouxXf";
 	char *s;
+	if (**pstr == 'i')
+	{
+		f->fl_cv = 4;
+		return (1);
+	}
 	s = ft_strchr(STR_CONV, **pstr);
 	if (s == NULL || *s == 0)
 		return (0);
-	if (**pstr == 'i')
-		f->fl_cv = 4;
 	else
 		f->fl_cv = s - STR_CONV + 1;
 	return (1);
