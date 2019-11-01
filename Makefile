@@ -19,7 +19,7 @@ WHITE = \033[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ) ft_printf.h
-	mv $(LIBFT) $@
+	cp $(LIBFT) $@
 	ar rcs $@ $(OBJ) && echo "$(GREEN)$@ successfully created$(WHITE)"
 
 $(LIBFT) :

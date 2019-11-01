@@ -1,9 +1,9 @@
 #include "ft_printf.h"
 
 static void new_buf(t_buf *pbuf) {
-  pbuf->str = NULL;
-  pbuf->size = 0;
-  pbuf->pos = 0;
+	pbuf->str = NULL;
+	pbuf->size = 0;
+	pbuf->pos = 0;
 }
 
 void		expand_buf(t_buf *pbuf)
@@ -31,7 +31,7 @@ static void	buf_join(t_buf *pbuf, const char *str, int size)
 	pbuf->pos += size;
 }
 
-int			read_format(t_buf *pbuf, const char *str, va_list ap)
+int		read_format(t_buf *pbuf, const char *str, va_list *ap)
 {
 	const char	*start;
 	t_flags		fl;
@@ -39,14 +39,14 @@ int			read_format(t_buf *pbuf, const char *str, va_list ap)
 	new_buf(pbuf);
 	while ((start = ft_strchr(str, '%')) != NULL)
 	{
-    if (start > str)
+		if (start > str)
 			buf_join(pbuf, str, (int)(start - str));
 		start += flags_parse(&fl, start + 1) + 1;
 		if (fl.fl_cv == 0)
 			return (1);
 		str = start;
 		new_buf(&(fl.buf));
-		pf_convert(&fl, &ap);
+		pf_convert(&fl, ap);
 		if (fl.buf.size > 0)
 			buf_join(pbuf, fl.buf.str, fl.buf.size);
 		if (fl.buf.str != NULL)

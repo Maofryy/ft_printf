@@ -17,6 +17,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdarg.h>
+# include <wctype.h>
 # define IS_NUM(x) (x >= '0' && x <= '9')
 # define STR_CONV "cspdouxXfF"
 # define STR_FLAGS "#0+- "
@@ -56,7 +57,7 @@ typedef struct	s_flags
 
 int			ft_gprintf(const char *format, ...);
 int			ft_printf(const char * restrict format, ...);
-int			read_format(t_buf *pbuf, const char *str, va_list ap);
+int			read_format(t_buf *pbuf, const char *str, va_list *ap);
 void		expand_buf(t_buf *pbuf);
 int			flags_parse(t_flags *fl, const char *str);
 void			flags_init(t_flags *fl);
@@ -88,7 +89,7 @@ char			*ret_str_Xint(t_flags fl, char *str, unsigned long long n);
 
 void		convert_str(t_flags *fl, va_list *ap);
 void		convert_char(t_flags *fl, va_list *ap);
-void pf_convert(t_flags *fl, va_list *ap);
+void	pf_convert(t_flags *fl, va_list *ap);
 char	pad_byte(t_flags *fl);
 void	buf_pad(t_buf *buf, char pad, int width, int right_pad);
 void	buf_prepend(char *s1, t_buf *buf);

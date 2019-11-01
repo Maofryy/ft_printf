@@ -24,6 +24,7 @@ void		flags_init(t_flags *fl)
 	}
 }
 
+/*
 #include <stdio.h>
 void		flags_print(t_flags fl)
 {
@@ -37,7 +38,7 @@ void		flags_print(t_flags fl)
 		p++;
 	}
 }
-
+*/
 t_flags			flags_err(t_flags *fl)
 {
 	fl->fl_err = -1;

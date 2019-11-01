@@ -52,7 +52,7 @@ int ft_printf(const char * restrict format, ...)
 }
 */
 
-int			ft_gprintf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	t_buf	buf;
@@ -61,7 +61,7 @@ int			ft_gprintf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(ap, format);
-	ret = read_format(&buf, format, ap);
+	ret = read_format(&buf, format, &ap);
 	va_end(ap);
 	if (ret > 0)
 		ret = write(1, buf.str, buf.pos);
