@@ -174,14 +174,24 @@ int main(int ac, char **av) {
 	// printf("rl : %-5%\n");
 	// ft_printf("ft : %.0%\n");
 	// printf("rl : %.0%\n");
-	ft_printf("ft : %%\n","test");
-	printf("rl : %%\n", "test");
-	ft_printf("ft : %   %\n");
-	printf("rl : %   %\n");
-	ft_printf("ft : %#X\n", 42); //BON
-	printf("rl : %#X\n", 42);
-	ft_printf("ft : %#x\n", 42);
-	printf("rl : %#x\n", 42);
+	// ft_printf("ft : %%\n","test");
+	// printf("rl : %%\n", "test");
+	// ft_printf("ft : %   %\n");
+	// printf("rl : %   %\n");
+	// ft_printf("ft : %#X\n", 42); //BON
+	// printf("rl : %#X\n", 42);
+	// ft_printf("ft : %#x\n", 42);
+	// printf("rl : %#x\n", 42);
+	// ft_printf("% h");
+	// ft_printf("% hZ%");
+	// ft_printf("%%%", "test");
+	// ft_printf("%%   %", "test");
+	// ft_printf("%jx", 4294967295);
+	// ft_printf("%jx", 4294967296);
+	// ft_printf("%x", 4294967295);
+	// ft_printf("%x", 4294967296);
+	ft_printf("%U", 4294967296);
+	ft_printf("%U", 4294967295);
 
 	// ft_printf("%c\n", 'A');
 

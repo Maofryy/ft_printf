@@ -21,7 +21,7 @@ int		is_format_flag(char **pstr, t_flags *fl)
 	p = &fl->fl_sharp;
 
 	s = ft_strchr(STR_FLAGS, **pstr);
-	if (s == NULL)
+	if (s == NULL || **pstr == 0)
 		return (0);
 	*(p + (int)(s - STR_FLAGS)) = 1;
 	(*pstr)++;
@@ -91,7 +91,7 @@ int		is_conv(char **pstr, t_flags *f)
 	//const char str[] = "cspdouxXf";
 	char *s;
 	s = ft_strchr(STR_CONV, **pstr);
-	if (s == NULL)
+	if (s == NULL || *s == 0)
 		return (0);
 	if (**pstr == 'i')
 		f->fl_cv = 4;

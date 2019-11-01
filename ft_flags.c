@@ -22,6 +22,7 @@ void		flags_init(t_flags *fl)
 		*p = -1;
 		p++;
 	}
+	fl->fl_cv = 0;
 }
 
 /*
@@ -89,7 +90,7 @@ int			flags_parse(t_flags *fl, const char *str)
 		|| is_width_field((char **)&str, fl)
 		|| is_precision_flag((char **)&str, fl))
 		continue ;
-		// ft_putchar(*str);
+
 	fl->fl_cv_char = *str;
 	is_conv((char **)&str, fl);
 	return (int)(str - start);

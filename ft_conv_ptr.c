@@ -2,6 +2,7 @@
 
 void	convert_other(t_flags *fl) //can delete now
 {
+	ft_putstr("La?");
 	if (!(fl->buf.str = (char *)malloc(1)))
 		exit(1);
 	(fl->buf.str)[0] = fl->fl_cv_char;
