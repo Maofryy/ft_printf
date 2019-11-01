@@ -41,9 +41,9 @@ static int			double_precision(t_flags *fl)
 
 static void	prepend_stuff(t_flags *fl, t_intstuff *vars)
 {
-	/*if (vars->neg)
+	if (vars->neg)
 		buf_prepend("-", &(fl->buf));
-	else */if (fl->fl_plus == 1 && vars->neg == 0)
+	else if (fl->fl_plus == 1)
 		buf_prepend("+", &(fl->buf));
 	else if (fl->fl_space == 1)
     buf_prepend(" ", &(fl->buf));
@@ -72,7 +72,8 @@ void				convert_double(t_flags *fl, va_list *ap)
     value = va_arg(*ap, long double);
   else
 		value = va_arg(*ap, double);
-  vars.neg = ((long long)value < 0) ? 1 : 0;
+  vars.neg = (value < 0) ? 1 : 0;
+	value = (value < 0) ? -value : value;
   vars.is_zero = fl->buf.size == 0
     || (fl->buf.size == 1 && (fl->buf.str)[0] == '0');
   if (!(fl->buf.str = ft_lltoa((long long)value)))
