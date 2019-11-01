@@ -17,8 +17,6 @@ void	convert_pointer(t_flags *fl, va_list *ap)
 	intptr_t	value;
 
 	value = va_arg(*ap, intptr_t);
-	// ft_putstr(ft_lltoa_base((long long)25769804864, 16));
-	ft_putchar('\n');
 	if (!value && fl->fl_pr == 0)
 		fl->buf.str = ft_strnew(0);
 	else

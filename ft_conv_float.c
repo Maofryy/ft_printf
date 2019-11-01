@@ -41,9 +41,9 @@ static int			double_precision(t_flags *fl)
 
 static void	prepend_stuff(t_flags *fl, t_intstuff *vars)
 {
-	if (vars->neg)
+	/*if (vars->neg)
 		buf_prepend("-", &(fl->buf));
-	else if (fl->fl_plus == 1)
+	else */if (fl->fl_plus == 1 && vars->neg == 0)
 		buf_prepend("+", &(fl->buf));
 	else if (fl->fl_space == 1)
     buf_prepend(" ", &(fl->buf));
