@@ -76,6 +76,8 @@ void				convert_double(t_flags *fl, va_list *ap)
 	value = (value < 0) ? -value : value;
   vars.is_zero = fl->buf.size == 0
     || (fl->buf.size == 1 && (fl->buf.str)[0] == '0');
+	if (((value - (long long)value)*10 >= 5) && fl->fl_pr == 0)
+		value++;
   if (!(fl->buf.str = ft_lltoa((long long)value)))
 		exit(1);
   fl->buf.size = ft_strlen(fl->buf.str);
@@ -86,11 +88,14 @@ void				convert_double(t_flags *fl, va_list *ap)
 		value = -value;
 	value *= ft_tenpow(fl->fl_pr + 1);
 	if ((unsigned long long)value % 10 >= 5)
-		value += 1;
+		value += 10;
 	i = fl->buf.size;
 	while (i > (fl->buf.size - fl->fl_pr))
 	{
-		value /= 10.0;
+		// if ((unsigned long long)value % 10 >= 5 && i > fl->fl_pr)
+		// 	value = value / 10.0 + 1.0;
+		// else
+			value /= 10.0;
 		(fl->buf.str)[i - 1] = (((unsigned long long)value % 10) + '0');
 		i--;
 	}

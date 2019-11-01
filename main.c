@@ -195,7 +195,10 @@ int main(int ac, char **av) {
 
 	// ft_printf("%p", ft_strdup("lol"));
 	// ft_printf("%.3f", -0.00001f);
-	ft_printf("%f", -10.0f);
+	ft_printf("ft : %.1f\n", 1.6f);
+	printf("rl : %.1f\n",1.6f);
+	ft_printf("ft : %.f\n", 1.6f);
+	printf("rl : %.f\n",1.6f);
 
 	// ft_printf("ft : %15f\n", 10.0f);
 	// ft_printf("ft : %-15f\n", 10.0f);
