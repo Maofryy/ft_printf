@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include "ft_printf.h"
+#include "libft/includes/libft.h"
 
 int main(int ac, char **av) {
 	(void)ac;
@@ -152,10 +153,9 @@ int main(int ac, char **av) {
 	// char *str = strdup("Hey this is a test");
 	// char *str2 = str + 2;
 	// ft_gprintf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
-	// printf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
-	ft_putstr(ft_lltoa_base(35769804864, 16));
-	//ft_gprintf("ft : str = %s, str2 = %s, str3 = %s\n", str, str2, str3);
-	// ft_putchar(STR_CONV[1]);
+	// printf("rl : str1 %p, str2 %p\n", (void *)str, (void *)str2);
+	ft_gprintf("ft : %Lf\n", 10.0L);
+	printf("rl : %Lf\n", 10.0L);
 
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");

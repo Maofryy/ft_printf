@@ -29,6 +29,14 @@ typedef struct	s_buf
 	int pos;
 }		t_buf;
 
+typedef struct	s_intstuff
+{
+	int			neg;
+	int			is_zero;
+	int			can_expand;
+	int			offset;
+}				t_intstuff;
+
 typedef struct	s_flags
 {
 	int	fl_sharp;
@@ -91,6 +99,7 @@ int	convert_wide_c(char *dst, wint_t c);
 int	convert_wide_str(char *dst, wchar_t *str);
 void	convert_other(t_flags *fl);
 void	convert_pointer(t_flags *fl, va_list *ap);
+void				convert_double(t_flags *fl, va_list *ap);
 
 
 int ft_positive_atoi(char **str);

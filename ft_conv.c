@@ -36,18 +36,18 @@ void ft_ret_addr_str(void* p0, char *str)
 	}
 }
 
-void pf_convert(t_flags *fl, va_list *ap) {
-
+void pf_convert(t_flags *fl, va_list *ap)
+{
 	if (fl->fl_cv == 2)
 		convert_str(fl, ap);
 	else if (fl->fl_cv == 1)
 		convert_char(fl, ap);
-	// else if (fl->fl_cv == 4
-	// 	|| fl->fl_cv == 5 || fl->fl_cv == 6
-	// 	|| fl->fl_cv == 7 || fl->fl_cv == 8)
-	// 	convert_int(fl, ap);
-	// else if (fl->fl_cv == 9 || fl->fl_cv == '0)
-	// 	convert_double(fl, ap);
+	else if (fl->fl_cv == 4
+		|| fl->fl_cv == 5 || fl->fl_cv == 6
+		|| fl->fl_cv == 7 || fl->fl_cv == 8)
+		convert_int(fl, ap);
+	else if (fl->fl_cv == 9 || fl->fl_cv == 0)
+		convert_double(fl, ap);
 	else if (fl->fl_cv == 3)
 		convert_pointer(fl, ap);
 	else if (fl->fl_cv != 0)

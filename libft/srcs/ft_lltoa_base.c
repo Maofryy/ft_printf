@@ -7,6 +7,8 @@ static char	ft_base_char(int n)
 	return (n - 10 + 'A');
 }
 
+#include <stdio.h>
+
 char		*ft_lltoa_base(long long n, int base)
 {
 	unsigned long long	value;

@@ -2,7 +2,7 @@ NAME	= libftprintf.a
 SRC		= ft_printf.c ft_args.c ft_check.c  ft_flags.c \
 		  ft_ftoa.c ft_test.c ft_conv.c ft_modifiers.c \
 			ft_buffer.c ft_buffer2.c ft_wide.c ft_conv_str.c \
-			ft_int.c ft_conv_ptr.c
+			ft_int.c ft_conv_ptr.c ft_conv_float.c
 OBJ		= $(SRC:.c=.o)
 
 
@@ -19,7 +19,7 @@ WHITE = \033[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ) ft_printf.h
-	cp $(LIBFT) $@
+	mv $(LIBFT) $@
 	ar rcs $@ $(OBJ) && echo "$(GREEN)$@ successfully created$(WHITE)"
 
 $(LIBFT) :
@@ -40,7 +40,7 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
-.SILENT: all $(NAME) clean fclean re
+//.SILENT: all $(NAME) clean fclean re
 
 run: $(NAME)
 	$(CC) main.c -o test.exe libftprintf.a && ./test.exe
