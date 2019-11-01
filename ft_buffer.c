@@ -42,7 +42,7 @@ int		read_format(t_buf *pbuf, const char *str, va_list *ap)
     if (start > str)
 			buf_join(pbuf, str, (int)(start - str));
 		start += flags_parse(&fl, start + 1) + 1;
-		if (fl.fl_cv == 0)
+		if (fl.fl_cv_char == 0)
 			return (1);
 		str = start + 1;
 		new_buf(&(fl.buf));

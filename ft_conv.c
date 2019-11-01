@@ -46,10 +46,10 @@ void pf_convert(t_flags *fl, va_list *ap)
 		|| fl->fl_cv == 5 || fl->fl_cv == 6
 		|| fl->fl_cv == 7 || fl->fl_cv == 8)
 		convert_int(fl, ap);
-	else if (fl->fl_cv == 9 || fl->fl_cv == 0)
+	else if (fl->fl_cv == 9 || fl->fl_cv == 10)
 		convert_double(fl, ap);
 	else if (fl->fl_cv == 3)
 		convert_pointer(fl, ap);
-	else if (fl->fl_cv != 0)
+	else if (fl->fl_cv_char != 0)
 		convert_other(fl);
 }

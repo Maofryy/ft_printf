@@ -167,7 +167,7 @@ int main(int ac, char **av) {
 	// ft_printf("ft : %Z\n", 10.0f);
 	// printf("rl : %Z\n");
 	// ft_printf("ft : %%d\n", 42);
-	// printf("rl : %%d\n", 42);
+	// printf("rl : %%\n", 42);
 	// ft_printf("ft : %5%\n");
 	// printf("rl : %5%\n");
 	// ft_printf("ft : %-5%\n");
@@ -190,10 +190,10 @@ int main(int ac, char **av) {
 	// ft_printf("%jx", 4294967296);
 	// ft_printf("%x", 4294967295);
 	// ft_printf("%x", 4294967296);
-	ft_printf("%U", 4294967296);
-	ft_printf("%U", 4294967295);
+	// ft_printf("%U", 4294967296);
+	// ft_printf("%U", 4294967295);
 
-	// ft_printf("%c\n", 'A');
+	ft_printf("%%");
 
 	// ft_printf("ft : %15f\n", 10.0f);
 	// ft_printf("ft : %-15f\n", 10.0f);
