@@ -154,8 +154,10 @@ int main(int ac, char **av) {
 	// char *str2 = str + 2;
 	// ft_gprintf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
 	// printf("rl : str1 %p, str2 %p\n", (void *)str, (void *)str2);
-	ft_gprintf("ft : %Lf\n", 10.0L);
-	printf("rl : %Lf\n", 10.0L);
+	ft_gprintf("ft : %15f\n", 10.0f);
+	printf("rl : %15f\n", 10.0f);
+	// ft_gprintf("ft : %u\n", -10);
+	// printf("rl : %u\n", -10);
 
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");

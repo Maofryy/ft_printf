@@ -29,14 +29,14 @@ void	convert_pointer(t_flags *fl, va_list *ap)
 	fl->buf.str = ft_strtolower(fl->buf.str);
 	if (fl->fl_pr > 0 && fl->fl_pr > fl->buf.size)
 		buf_pad(&(fl->buf), '0', fl->fl_pr, 0);
-	if ((fl->fl_zero) && !(fl->fl_minus)
+	if ((fl->fl_zero  == 1) && !(fl->fl_minus  == 1)
 		&& fl->fl_fw > 2)
 		buf_pad(&(fl->buf), '0', fl->fl_fw - 2, 0);
 	buf_prepend("0x", &(fl->buf));
 	if (!(fl->buf.str))
 		exit(1);
 	if (fl->fl_fw > 0 && fl->buf.size < fl->fl_fw
-		&& (!(fl->fl_zero) || fl->fl_minus))
+		&& (!(fl->fl_zero == 1) || fl->fl_minus == 1))
 		buf_pad(&(fl->buf), pad_byte(fl), fl->fl_fw
-			, fl->fl_minus);
+			, fl->fl_minus == 1);
 }

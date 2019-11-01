@@ -100,6 +100,8 @@ int	convert_wide_str(char *dst, wchar_t *str);
 void	convert_other(t_flags *fl);
 void	convert_pointer(t_flags *fl, va_list *ap);
 void				convert_double(t_flags *fl, va_list *ap);
+void		convert_int(t_flags *fl, va_list *ap);
+int							intval_to_buf(t_flags *fl, va_list *ap);
 
 
 int ft_positive_atoi(char **str);
