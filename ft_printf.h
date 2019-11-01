@@ -50,6 +50,7 @@ typedef struct	s_flags
 	int	fl_sc;
 	int	fl_cv;
 	int	fl_cv_sign;
+	char fl_cv_char;
 	int	fl_err;
 	t_buf buf;
 

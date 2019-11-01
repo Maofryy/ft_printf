@@ -67,6 +67,6 @@ int							intval_to_buf(t_flags *fl, va_list *ap)
 	if (value == 0 && fl->fl_pr == 0)
 		fl->buf.str = ft_strnew(0);
 	else
-		fl->buf.str = ft_ulltoa_base(value, base);
+		fl->buf.str = ft_ulltoa_BASE(value, base);
 	return (0);
 }

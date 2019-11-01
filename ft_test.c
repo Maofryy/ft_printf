@@ -65,19 +65,19 @@ int		is_conv_flag(char **pstr, t_flags *fl)
 {
 	if (*pstr[0] == 'h')
 	{
-		if (*(pstr[1]) == 'h')
+		if ((*pstr)[1] == 'h')
 			fl->fl_sc = 1;
 		else
 			fl->fl_sc = 2;
 	}
-	else if (*pstr[0] == 'l')
+	else if ((*pstr)[0] == 'l')
 	{
-		if (*(pstr[1]) == 'l')
+		if ((*pstr)[1] == 'l')
 			fl->fl_sc = 4;
 		else
 			fl->fl_sc = 3;
 	}
-	else if (*pstr[0] == 'L')
+	else if ((*pstr)[0] == 'L')
 		fl->fl_sc = 5;
 	else
 		return (0);
@@ -97,6 +97,5 @@ int		is_conv(char **pstr, t_flags *f)
 		f->fl_cv = 4;
 	else
 		f->fl_cv = s - STR_CONV + 1;
-	(*pstr)++;
 	return (1);
 }

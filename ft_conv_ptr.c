@@ -4,7 +4,7 @@ void	convert_other(t_flags *fl) //can delete now
 {
 	if (!(fl->buf.str = (char *)malloc(1)))
 		exit(1);
-	(fl->buf.str)[0] = STR_CONV[fl->fl_cv];
+	(fl->buf.str)[0] = fl->fl_cv_char;
 	fl->buf.size = 1;
 	if (fl->fl_fw > 0 && fl->buf.size < fl->fl_fw)
 		buf_pad(&(fl->buf), pad_byte(fl), fl->fl_fw

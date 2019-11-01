@@ -89,8 +89,8 @@ int			flags_parse(t_flags *fl, const char *str)
 		|| is_width_field((char **)&str, fl)
 		|| is_precision_flag((char **)&str, fl))
 		continue ;
-		//printf("pr : %c", fl->fl_pr);
-
+		// ft_putchar(*str);
+	fl->fl_cv_char = *str;
 	is_conv((char **)&str, fl);
 	return (int)(str - start);
 }

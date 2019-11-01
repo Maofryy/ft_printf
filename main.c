@@ -152,27 +152,51 @@ int main(int ac, char **av) {
 	//ft_printf("ft : @moulitest: %#o %#0o\n", 0, 0);
 	// char *str = strdup("Hey this is a test");
 	// char *str2 = str + 2;
-	// ft_gprintf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
+	// ft_printf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
 	// printf("rl : str1 %p, str2 %p\n", (void *)str, (void *)str2);
 
-	// ft_gprintf("ft : % f\n", 10.0f);
-	// ft_gprintf("ft : %9f\n", 10.0f);
-	// ft_gprintf("ft : %10 f\n", 10.0f);
-	// ft_gprintf("ft : %11 f\n", 10.0f);
+	// ft_printf("ft : % f\n", 10.0f);
+	// ft_printf("ft : %9f\n", 10.0f);
+	// ft_printf("ft : %10 f\n", 10.0f);
+	// ft_printf("ft : %11 f\n", 10.0f);
 	// printf("rl : % f\n", 10.0f);
 	// printf("rl : %9f\n", 10.0f);
 	// printf("rl : %10 f\n", 10.0f);
 	// printf("rl : %11 f\n", 10.0f);
 
-	ft_gprintf("ft : %15f\n", 10.0f);
-	ft_gprintf("ft : %-15f\n", 10.0f);
-	ft_gprintf("ft : %015f\n", 10.0f);
-	ft_gprintf("ft : %-015f\n", 10.0f);
-	printf("rl : %15f\n", 10.0f);
-	printf("rl : %-15f\n", 10.0f);
-	printf("rl : %015f\n", 10.0f);
-	printf("rl : %-015f\n", 10.0f);
+	// ft_printf("ft : %Z\n", 10.0f);
+	// printf("rl : %Z\n");
+	// ft_printf("ft : %%d\n", 42);
+	// printf("rl : %%d\n", 42);
+	// ft_printf("ft : %5%\n");
+	// printf("rl : %5%\n");
+	// ft_printf("ft : %-5%\n");
+	// printf("rl : %-5%\n");
+	// ft_printf("ft : %.0%\n");
+	// printf("rl : %.0%\n");
+	ft_printf("ft : %%\n","test");
+	printf("rl : %%\n", "test");
+	ft_printf("ft : %   %\n");
+	printf("rl : %   %\n");
+	ft_printf("ft : %#X\n", 42); //BON
+	printf("rl : %#X\n", 42);
+	ft_printf("ft : %#x\n", 42);
+	printf("rl : %#x\n", 42);
 
+	// ft_printf("%c\n", 'A');
+
+	// ft_printf("ft : %15f\n", 10.0f);
+	// ft_printf("ft : %-15f\n", 10.0f);
+	// ft_printf("ft : %015f\n", 10.0f);
+	// ft_printf("ft : %-015f\n", 10.0f);
+	// printf("rl : %15f\n", 10.0f);
+	// printf("rl : %-15f\n", 10.0f);
+	// printf("rl : %015f\n", 10.0f);
+	// printf("rl : %-015f\n", 10.0f);
+	// ft_printf("ft : %hhd\n", 128); //CA C'EST BON
+	// ft_printf("ft : %hhd\n", 129);
+	// printf("rl : %hhd\n", 128);
+	// printf("rl : %hhd\n", 129);
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)
