@@ -100,5 +100,5 @@ char			*ft_ulltoa_base(unsigned long long int n, int base);
 char			*ft_ulltoa_BASE(unsigned long long int n, int base);
 char			*ft_ulltoa(unsigned long long int n);
 void 			ft_reverse_str(char *str, int len);
-
+char			*ft_strtolower(char *s);
 #endif

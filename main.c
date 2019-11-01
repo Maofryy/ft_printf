@@ -24,11 +24,11 @@ int main(int ac, char **av) {
 	//void *p = &str;
 	//float sep = (float)4/9;
 	//ft_dtoa(sep, str, 6);
-	
+
 	/*//------------BONUS TEST--------------------
 	printf("Does this work : \033[0;32m%s\033[0m ?\n", "test");*/
 	//------------IDENTIFIER TEST-----------------
-	/*	
+	/*
 	printf("rl : Hey try this char : %c\n", *str);
 	printf("rl : Hey try this string : %s\n", str);
 	printf("rl : Hey try this pointer : %p\n", p);
@@ -50,7 +50,7 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this an unsigned HEXA int  : %X\n", (unsigned int)n);
 	*/
 
-	//---------------LENGTH TEST--------------	
+	//---------------LENGTH TEST--------------
 	/*
 	//printf("pr :Hey try this int : %d\n", (int)n);
 	//printf("pr :Hey try this int : %hhd\n", (char)n);
@@ -70,7 +70,7 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this float : %f\n", (float)sep);
 	ft_printf("ft :Hey try this double size float : %lf\n", (double)sep);
 	ft_printf("ft :Hey try this long double size float : %Lf\n", (long double)sep);
-	*/	
+	*/
 
 	//-----------------PRECISION TESTS-------------------------------
 	/*
@@ -87,7 +87,7 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this string with pr 5 : %.5s\n", str);
 	ft_printf("ft :Hey try this float with pr 0 : %.f\n", sep);
 	ft_printf("ft :Hey try this float with pr 9 : %.9f\n", sep);
-	*/	
+	*/
 
 	//-------------------WIDTH TESTS------------------------------------
 	/*
@@ -104,7 +104,7 @@ int main(int ac, char **av) {
 	*/
 
 	//------------------FLAGS TESTS------------------------------
-		
+
 	/*printf("rl :Hey try this octal char : %#0o\n", (unsigned char)n);
 	printf("rl :Hey try this lower hexa : %#x\n", (unsigned int)n);
 	printf("rl :Hey try this upper hexa : %#X\n", (unsigned int)n);
@@ -118,10 +118,10 @@ int main(int ac, char **av) {
 	ft_printf("ft :Hey try this float : %+f\n", sep);
 	printf("rl :Hey try this float : % f\n", -sep);
 	ft_printf("ft :Hey try this float : % f\n", -sep);*/
-	
+
 
 	//---------------------42FC TESTS---------------------------------
-	
+
 	//printf("rl : %+05d\n", 10);
 	//printf("rl : %+5d\n", 10);
 	//printf("rl : %+5d\n", -10);
@@ -144,12 +144,19 @@ int main(int ac, char **av) {
 	*/
 	//printf("rl : %010x\n", 542);
 	//ft_printf("ft : %010x\n", 542);
-	
-	//printf("rl : @moulitest: %#.o %#.0o\n", 0, 0);	
-	//printf("rl : @moulitest: %#o %#0o\n", 0, 0);	
-	//ft_printf("ft : @moulitest: %#.o %#.0o\n", 0, 0);	
-	//ft_printf("ft : @moulitest: %#o %#0o\n", 0, 0);	
-	ft_printf("ft : %d%", 0);
+
+	//printf("rl : @moulitest: %#.o %#.0o\n", 0, 0);
+	//printf("rl : @moulitest: %#o %#0o\n", 0, 0);
+	//ft_printf("ft : @moulitest: %#.o %#.0o\n", 0, 0);
+	//ft_printf("ft : @moulitest: %#o %#0o\n", 0, 0);
+	// char *str = strdup("Hey this is a test");
+	// char *str2 = str + 2;
+	// ft_gprintf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
+	// printf("ft : str1 %p, str2 %p\n", (void *)str, (void *)str2);
+	ft_putstr(ft_lltoa_base(35769804864, 16));
+	//ft_gprintf("ft : str = %s, str2 = %s, str3 = %s\n", str, str2, str3);
+	// ft_putchar(STR_CONV[1]);
+
 	/*if (ac == 1)
 	  i = ft_printf("Insert a format and arg to print");
 	  else if (ac == 2)

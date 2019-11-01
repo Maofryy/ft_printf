@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/*
 int ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
@@ -22,8 +23,8 @@ int ft_printf(const char * restrict format, ...)
 
 	va_start(ap, format);
 	count = 0;
-	/*if (check_args(format) != )
-	  return (die());*/
+	//if (check_args(format) != )
+	//  return (die());
 	while (*format)
 	{
 		if ((ret = get_to_arg((char **)&format)) == -1)
@@ -48,4 +49,23 @@ int ft_printf(const char * restrict format, ...)
 	va_end(ap);
 	//free_all(&s, &fmt, &fl);
 	return (count);
+}
+*/
+
+int			ft_gprintf(const char *format, ...)
+{
+	va_list	ap;
+	t_buf	buf;
+	int		ret;
+
+	if (format == NULL)
+		return (-1);
+	va_start(ap, format);
+	ret = read_format(&buf, format, ap);
+	va_end(ap);
+	if (ret > 0)
+		ret = write(1, buf.str, buf.pos);
+	if (buf.str != NULL)
+		free(buf.str);
+	return (ret);
 }

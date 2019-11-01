@@ -1,18 +1,17 @@
 #include "libft.h"
 
-/*
 static char	ft_base_char(int n)
 {
 	if (n < 10)
 		return (n + '0');
-	return (n - 10 + 'a');
+	return (n - 10 + 'A');
 }
 
 char		*ft_lltoa_base(long long n, int base)
 {
-	unsigned long long int	value;
-	int			count;
-	char			*str;
+	unsigned long long	value;
+	int					count;
+	char				*str;
 
 	if (base < 2 || base > 36)
 		return (NULL);
@@ -33,24 +32,5 @@ char		*ft_lltoa_base(long long n, int base)
 		value /= base;
 	}
 	*str = (n < 0 && base == 10 ? '-' : ft_base_char(value));
-	return (str);
-}*/
-
-char		*ft_lltoa_baset(long long n, int base)
-{
-	int		i;
-	char	*str;
-
-	if (n < 0)
-	{
-		str = ft_ulltoa_base((unsigned long long)-n, base);
-		i = ft_strlen(str);
-		ft_reverse_str(str, i);
-		str[i++] = '-';
-		ft_reverse_str(str, i);
-		str[i] = '\0';
-	}
-	else
-		str = ft_ulltoa_base((unsigned long long)n, base);
 	return (str);
 }

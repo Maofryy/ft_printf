@@ -23,8 +23,8 @@ void ft_ret_addr_str(void* p0, char *str)
 {
 	int i;
 	intptr_t p = (intptr_t)p0;
-	
-	*(str++)='0'; 
+
+	*(str++)='0';
 	*(str++) = 'x';
 	i = (sizeof(p) << 3) - 4;
 	while ((hex_digit((p >> i) & 0xf) == '0'))
@@ -34,4 +34,22 @@ void ft_ret_addr_str(void* p0, char *str)
 		*(str++) = (hex_digit((p >> i) & 0xf));
 		i -= 4;
 	}
+}
+
+void pf_convert(t_flags *fl, va_list *ap) {
+
+	if (fl->fl_cv == 2)
+		convert_str(fl, ap);
+	else if (fl->fl_cv == 1)
+		convert_char(fl, ap);
+	// else if (fl->fl_cv == 4
+	// 	|| fl->fl_cv == 5 || fl->fl_cv == 6
+	// 	|| fl->fl_cv == 7 || fl->fl_cv == 8)
+	// 	convert_int(fl, ap);
+	// else if (fl->fl_cv == 9 || fl->fl_cv == '0)
+	// 	convert_double(fl, ap);
+	else if (fl->fl_cv == 3)
+		convert_pointer(fl, ap);
+	else if (fl->fl_cv != 0)
+		convert_other(fl);
 }

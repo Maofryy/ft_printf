@@ -94,7 +94,8 @@ SRC_NAME = ft_atoi.c \
 	   ft_strcapitalize.c \
 	   ft_strnjoinfree.c \
 	   ft_reverse.c \
-	   get_next_line.c 
+		 ft_strtolower.c \
+	   get_next_line.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

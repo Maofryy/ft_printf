@@ -12,18 +12,16 @@
 
 #include "ft_printf.h"
 
-t_flags		flags_init(void)
+void		flags_init(t_flags *fl)
 {
-	t_flags	fl;
 	int	*p;
 
-	p = &fl.fl_sharp;
-	while (p <= &fl.fl_err)
+	p = &fl->fl_sharp;
+	while (p <= &fl->fl_err)
 	{
 		*p = -1;
 		p++;
 	}
-	return (fl);
 }
 
 #include <stdio.h>
@@ -46,14 +44,16 @@ t_flags			flags_err(t_flags *fl)
 	return (*fl);
 }
 
+#include <stdio.h>
+
 t_flags		read_flags(char ** p)
 {
 	t_flags fl;
 
-	fl = flags_init();
+	flags_init(&fl);
 	if (**p == 0)
 		return (flags_err(&fl));
-	while (is_format_flag(**p, &fl))
+	while (is_format_flag(p, &fl))
 		(*p)++;
 	if (IS_NUM((int)**p))
 	{
@@ -68,11 +68,28 @@ t_flags		read_flags(char ** p)
 		while (IS_NUM((int)**p))
 			(*p)++;
 	}
-	if (is_conv_flag((char *)*p, &fl))
+	if (is_conv_flag(p, &fl))
 		(*p)++;
 	if (fl.fl_sc == 1 || fl.fl_sc == 4)
 		(*p)++;
-	if (is_conv(**p, &fl))
+	if (is_conv(p, &fl))
 		(*p)++;
 	return (fl);
+}
+
+int			flags_parse(t_flags *fl, const char *str)
+{
+	const char	*start;
+
+	start = str;
+	flags_init(fl);
+	while (is_format_flag((char **)&str, fl)
+		|| is_conv_flag((char **)&str, fl)
+		|| is_width_field((char **)&str, fl)
+		|| is_precision_flag((char **)&str, fl))
+		continue ;
+		//printf("pr : %c", fl->fl_pr);
+
+	is_conv((char **)&str, fl);
+	return (int)(str - start);
 }
