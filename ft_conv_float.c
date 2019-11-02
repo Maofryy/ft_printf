@@ -60,7 +60,35 @@ static void	prepend_stuff(t_flags *fl, t_intstuff *vars)
     exit(1);
 }
 
-// Need to handle plus and space or minus shit flags
+//Quand la decimale fais passer a l'entier suivant
+static void pass_to_next_int(t_flags *fl)
+{
+	long long n;
+	unsigned int n_len;
+	char *n_str;
+	unsigned int i;
+
+	n_len = 0;
+	while (fl->buf.str[n_len] != '.')
+		n_len++;
+	n = ft_atoi(fl->buf.str);
+	n_str = ft_lltoa(n + 1);
+		i = -1;
+	if (n_len == ft_strlen(n_str))
+	{
+		while (++i < n_len)
+			fl->buf.str[i] = n_str[i];
+	}
+	else
+	{
+			while (++i < n_len)
+				fl->buf.str[i] = '0';
+			buf_pad(&(fl->buf), '1', fl->buf.size + 1, 0);
+	}
+	ft_putstr(fl->buf.str);
+	ft_putchar('\n');
+}
+
 #include <stdio.h>
 void				convert_double(t_flags *fl, va_list *ap)
 {
@@ -87,17 +115,18 @@ void				convert_double(t_flags *fl, va_list *ap)
 	if (value < 0)
 		value = -value;
 	value *= ft_tenpow(fl->fl_pr + 1);
-	if ((unsigned long long)value % 10 >= 5)
+	if ((long long)value % 10 >= 5)
 		value += 10;
+	// ft_putstr(ft_lltoa((long long)value));
+	// ft_putchar('\n');
 	i = fl->buf.size;
 	while (i > (fl->buf.size - fl->fl_pr))
 	{
-		// if ((unsigned long long)value % 10 >= 5 && i > fl->fl_pr)
-		// 	value = value / 10.0 + 1.0;
-		// else
 			value /= 10.0;
-		(fl->buf.str)[i - 1] = (((unsigned long long)value % 10) + '0');
+		(fl->buf.str)[i - 1] = (((long long)value % 10) + '0');
 		i--;
 	}
+	if((long long)value == 10)
+		pass_to_next_int(fl);
   prepend_stuff(fl, &vars);
 }
