@@ -85,8 +85,6 @@ static void pass_to_next_int(t_flags *fl)
 				fl->buf.str[i] = '0';
 			buf_pad(&(fl->buf), '1', fl->buf.size + 1, 0);
 	}
-	ft_putstr(fl->buf.str);
-	ft_putchar('\n');
 }
 
 #include <stdio.h>
