@@ -6,14 +6,14 @@
 /*   By: mbenhass <mbenhass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 13:10:43 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/10/10 19:32:45 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 12:37:13 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static char	ft_BASE_char(int n)
+static char	ft_majbase_char(int n)
 {
 	if (n < 10)
 		return (n + '0');
@@ -55,7 +55,7 @@ char		*ft_itoa_base(int n, int base)
 	return (str);
 }
 
-char		*ft_itoa_BASE(int n, int base)
+char		*ft_itoa_majbase(int n, int base)
 {
 	unsigned int	value;
 	int				count;
@@ -76,9 +76,9 @@ char		*ft_itoa_BASE(int n, int base)
 	value = (n < 0) ? -n : n;
 	while (--count > 0)
 	{
-		str[count] = ft_BASE_char(value % base);
+		str[count] = ft_majbase_char(value % base);
 		value /= base;
 	}
-	*str = (n < 0 && base == 10 ? '-' : ft_BASE_char(value));
+	*str = (n < 0 && base == 10 ? '-' : ft_majbase_char(value));
 	return (str);
 }

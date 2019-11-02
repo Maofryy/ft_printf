@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_buffer.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 14:28:46 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/11/02 14:30:23 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static void new_buf(t_buf *pbuf) {
+static void	new_buf(t_buf *pbuf)
+{
 	pbuf->str = NULL;
 	pbuf->size = 0;
 	pbuf->pos = 0;
@@ -21,7 +34,6 @@ void		expand_buf(t_buf *pbuf)
 	pbuf->size += BUFFER_SIZE;
 }
 
-
 static void	buf_join(t_buf *pbuf, const char *str, int size)
 {
 	while (pbuf->pos + size > pbuf->size)
@@ -31,7 +43,7 @@ static void	buf_join(t_buf *pbuf, const char *str, int size)
 	pbuf->pos += size;
 }
 
-int		read_format(t_buf *pbuf, const char *str, va_list *ap)
+int			read_format(t_buf *pbuf, const char *str, va_list *ap)
 {
 	const char	*start;
 	t_flags		fl;
@@ -39,7 +51,7 @@ int		read_format(t_buf *pbuf, const char *str, va_list *ap)
 	new_buf(pbuf);
 	while ((start = ft_strchr(str, '%')) != NULL)
 	{
-    if (start > str)
+		if (start > str)
 			buf_join(pbuf, str, (int)(start - str));
 		start += flags_parse(&fl, start + 1) + 1;
 		if (fl.fl_cv_char == 0)
@@ -56,5 +68,5 @@ int		read_format(t_buf *pbuf, const char *str, va_list *ap)
 	}
 	if (*str != '\0')
 		buf_join(pbuf, str, ft_strlen(str));
-  return (1);
+	return (1);
 }

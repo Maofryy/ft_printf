@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lltoa_base.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 12:37:45 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/11/02 12:37:48 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	ft_base_char(int n)
@@ -6,8 +18,6 @@ static char	ft_base_char(int n)
 		return (n + '0');
 	return (n - 10 + 'A');
 }
-
-#include <stdio.h>
 
 char		*ft_lltoa_base(long long n, int base)
 {

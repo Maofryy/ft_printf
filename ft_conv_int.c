@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_conv_int.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 12:29:49 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/11/02 12:29:53 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void	pad_fieldprecision(t_flags *fl, t_intstuff *vars)
@@ -27,7 +39,7 @@ static void	pad_fieldprecision(t_flags *fl, t_intstuff *vars)
 			exit(1);
 	}
 }
-//TO CHANGE
+
 static void	prepend_stuff(t_flags *fl, t_intstuff *vars)
 {
 	pad_fieldprecision(fl, vars);

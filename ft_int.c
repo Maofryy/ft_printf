@@ -1,17 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_int.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 12:28:26 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/11/02 13:43:57 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int ft_positive_atoi(char **pstr)
+void						pass_conv_flag(char **pstr, t_flags *fl)
 {
-  int ret;
+	if (fl->fl_sc == 1 || fl->fl_sc == 4)
+		(*pstr)++;
+}
 
-  ret = 0;
-  while ((*pstr)[0] >= '0' && (*pstr)[0] <= '9')
+int							ft_positive_atoi(char **pstr)
+{
+	int ret;
+
+	ret = 0;
+	while ((*pstr)[0] >= '0' && (*pstr)[0] <= '9')
 	{
 		ret *= 10;
 		ret += ((*pstr)[0] - '0');
 		(*pstr)++;
 	}
-  return (ret);
+	return (ret);
 }
 
 static unsigned long long	get_ullong(t_flags *fl, va_list *ap)
@@ -67,6 +85,6 @@ int							intval_to_buf(t_flags *fl, va_list *ap)
 	if (value == 0 && fl->fl_pr == 0)
 		fl->buf.str = ft_strnew(0);
 	else
-		fl->buf.str = ft_ulltoa_BASE(value, base);
+		fl->buf.str = ft_ulltoa_majbase(value, base);
 	return (0);
 }

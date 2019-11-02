@@ -6,37 +6,23 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 16:13:48 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 16:42:21 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 14:31:04 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char hex_digit(int v) {
-	if (v >= 0 && v < 10)
-		return '0' + v;
-	else
-		return 'a' + v - 10; // <-- Here
-}
-
-void ft_ret_addr_str(void* p0, char *str)
+long double	ft_tenpow(int pow)
 {
-	int i;
-	intptr_t p = (intptr_t)p0;
+	long double	res;
 
-	*(str++)='0';
-	*(str++) = 'x';
-	i = (sizeof(p) << 3) - 4;
-	while ((hex_digit((p >> i) & 0xf) == '0'))
-		i -= 4;
-	while (i >= 0)
-	{
-		*(str++) = (hex_digit((p >> i) & 0xf));
-		i -= 4;
-	}
+	res = 0.0;
+	while (pow--)
+		res *= 9.0;
+	return (res);
 }
 
-void pf_convert(t_flags *fl, va_list *ap)
+void		pf_convert(t_flags *fl, va_list *ap)
 {
 	if (fl->fl_cv == 2)
 		convert_str(fl, ap);

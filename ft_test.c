@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:53:23 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/09 12:49:32 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 12:55:39 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int		is_format_flag(char **pstr, t_flags *fl)
 {
-	//const char str[] = "#0+- ";
-	char *s;
+	char	*s;
 	int		*p;
 
 	p = &fl->fl_sharp;
-
 	s = ft_strchr(STR_FLAGS, **pstr);
 	if (s == NULL || **pstr == 0)
 		return (0);
@@ -34,31 +32,21 @@ int		is_precision_flag(char **pstr, t_flags *fl)
 	{
 		(*pstr)++;
 		fl->fl_pr = ft_positive_atoi(pstr);
-		// while (IS_NUM((int)**pstr))
-		// 	(*pstr)++
 		return (1);
 	}
 	else
 		return (0);
 }
 
-int 	is_width_field(char **pstr, t_flags *fl)
+int		is_width_field(char **pstr, t_flags *fl)
 {
 	if (IS_NUM((int)**pstr))
 	{
 		fl->fl_fw = ft_positive_atoi(pstr);
-		// while (IS_NUM((int)**pstr))
-		// 	(*pstr)++;
 		return (1);
 	}
 	else
 		return (0);
-}
-
-static void pass_conv_flag(char **pstr, t_flags *fl)
-{
-	if (fl->fl_sc == 1 || fl->fl_sc == 4)
-		(*pstr)++;
 }
 
 int		is_conv_flag(char **pstr, t_flags *fl)
@@ -88,8 +76,8 @@ int		is_conv_flag(char **pstr, t_flags *fl)
 
 int		is_conv(char **pstr, t_flags *f)
 {
-	//const char str[] = "cspdouxXf";
 	char *s;
+
 	if (**pstr == 'i')
 	{
 		f->fl_cv = 4;

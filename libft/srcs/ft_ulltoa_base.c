@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ulltoa_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 12:31:51 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/11/02 12:33:56 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 static char	ft_base_char(int n)
 {
@@ -8,7 +19,7 @@ static char	ft_base_char(int n)
 	return (n - 10 + 'a');
 }
 
-static char	ft_BASE_char(int n)
+static char	ft_majbase_char(int n)
 {
 	if (n < 10)
 		return (n + '0');
@@ -18,8 +29,8 @@ static char	ft_BASE_char(int n)
 char		*ft_ulltoa_base(unsigned long long n, int base)
 {
 	unsigned long long int	value;
-	int			count;
-	char			*str;
+	int						count;
+	char					*str;
 
 	if (base < 2 || base > 36)
 		return (NULL);
@@ -43,11 +54,11 @@ char		*ft_ulltoa_base(unsigned long long n, int base)
 	return (str);
 }
 
-char		*ft_ulltoa_BASE(unsigned long long n, int base)
+char		*ft_ulltoa_majbase(unsigned long long n, int base)
 {
 	unsigned long long int	value;
-	int			count;
-	char			*str;
+	int						count;
+	char					*str;
 
 	if (base < 2 || base > 36)
 		return (NULL);
@@ -64,10 +75,10 @@ char		*ft_ulltoa_BASE(unsigned long long n, int base)
 	value = n;
 	while (--count > 0)
 	{
-		str[count] = ft_BASE_char(value % base);
+		str[count] = ft_majbase_char(value % base);
 		value /= base;
 	}
-	*str = ft_BASE_char(value);
+	*str = ft_majbase_char(value);
 	return (str);
 }
 

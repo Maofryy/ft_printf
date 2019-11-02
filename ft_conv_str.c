@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_conv_str.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 12:28:05 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/11/02 14:04:27 by mbenhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void	buf_size(t_buf *buf, wchar_t *str)
@@ -29,7 +41,7 @@ void		convert_str(t_flags *fl, va_list *ap)
 {
 	char	*str;
 
-  str = va_arg(*ap, char *);
+	str = va_arg(*ap, char *);
 	if (str == NULL || (fl->fl_sc != 3))
 	{
 		if (!(fl->buf.str = ft_strdup(!str ? "(null)" : str)))
@@ -49,7 +61,7 @@ void		convert_str(t_flags *fl, va_list *ap)
 		fl->buf.size = fl->fl_pr;
 	if (fl->fl_fw > 0 && fl->buf.size < fl->fl_fw)
 		buf_pad(&(fl->buf), pad_byte(fl), fl->fl_fw
-			, (fl->fl_minus == 1));
+				, (fl->fl_minus == 1));
 }
 
 void		convert_char(t_flags *fl, va_list *ap)
@@ -75,5 +87,5 @@ void		convert_char(t_flags *fl, va_list *ap)
 	}
 	if (fl->fl_fw > 0 && fl->buf.size < fl->fl_fw)
 		buf_pad(&(fl->buf), pad_byte(fl), fl->fl_fw
-			, (fl->fl_minus == 1));
+				, (fl->fl_minus == 1));
 }

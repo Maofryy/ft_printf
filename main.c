@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 16:57:57 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/09/25 10:10:30 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 14:32:51 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,8 +195,8 @@ int main(int ac, char **av) {
 
 	// ft_printf("%p", ft_strdup("lol"));
 	// ft_printf("%.3f", -0.00001f);
-	ft_printf("ft : %f\n", 3.9999999f);
-	printf("rl : %f\n", 3.9999999f);
+	//ft_printf("ft : %f\n", 99.9999999f);
+	//printf("rl : %f\n", 99.9999999f);
 
 	// ft_printf("ft : %15f\n", 10.0f);
 	// ft_printf("ft : %-15f\n", 10.0f);
