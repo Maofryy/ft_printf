@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 12:29:04 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 13:42:51 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 16:22:32 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,12 @@ static void	pass_to_next_int(t_flags *fl)
 	}
 }
 
-static void	convert_double2(t_flags *fl, long double value)
+static void	convert_double2(t_flags *fl, long double val)
 {
 	int			i;
+	long double	value;
 
+	value = val;
 	value -= (long long)value;
 	if (value < 0)
 		value = -value;

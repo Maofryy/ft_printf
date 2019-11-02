@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 12:28:26 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 13:43:57 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 16:21:15 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ static unsigned long long	get_ullong(t_flags *fl, va_list *ap)
 		return ((unsigned char)va_arg(*ap, unsigned int));
 	else if (fl->fl_sc == 2)
 		return ((unsigned short)va_arg(*ap, unsigned int));
+	else if (fl->fl_sc == 7)
+		return (va_arg(*ap, uintmax_t));
+	else if (fl->fl_sc == 6)
+		return (va_arg(*ap, size_t));
 	else
 		return (va_arg(*ap, unsigned int));
 }
@@ -56,6 +60,10 @@ static long long			get_llong(t_flags *fl, va_list *ap)
 		return ((char)va_arg(*ap, int));
 	else if (fl->fl_sc == 2)
 		return ((short)va_arg(*ap, int));
+	else if (fl->fl_sc == 7)
+		return (va_arg(*ap, intmax_t));
+	else if (fl->fl_sc == 6)
+		return (va_arg(*ap, long));
 	else
 		return (va_arg(*ap, int));
 }

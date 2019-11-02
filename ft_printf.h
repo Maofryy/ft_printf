@@ -6,18 +6,16 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:27:03 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 14:03:01 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 15:03:31 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include "libft/includes/libft.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # include <stdarg.h>
 # include <wctype.h>
+# include <wchar.h>
 # define IS_NUM(x) (x >= '0' && x <= '9')
 # define STR_CONV "cspdouxXfF"
 # define STR_FLAGS "#0+- "

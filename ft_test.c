@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:53:23 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 12:55:39 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 16:20:43 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,23 @@ int		is_conv_flag(char **pstr, t_flags *fl)
 	if (*pstr[0] == 'h')
 	{
 		if ((*pstr)[1] == 'h')
-			fl->fl_sc = 1;
+			(fl->fl_sc < 6) ? fl->fl_sc = 1 : 0;
 		else
-			fl->fl_sc = 2;
+			(fl->fl_sc < 6) ? fl->fl_sc = 2 : 0;
 	}
 	else if ((*pstr)[0] == 'l')
 	{
 		if ((*pstr)[1] == 'l')
-			fl->fl_sc = 4;
+			(fl->fl_sc < 6) ? fl->fl_sc = 4 : 0;
 		else
-			fl->fl_sc = 3;
+			(fl->fl_sc < 6) ? fl->fl_sc = 3 : 0;
 	}
 	else if ((*pstr)[0] == 'L')
-		fl->fl_sc = 5;
+		(fl->fl_sc < 6) ? fl->fl_sc = 5 : 0;
+	else if ((*pstr)[0] == 'z')
+		fl->fl_sc = 6;
+	else if ((*pstr)[0] == 'j')
+		fl->fl_sc = 7;
 	else
 		return (0);
 	(*pstr)++;
