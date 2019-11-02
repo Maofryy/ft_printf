@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 12:29:49 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 12:29:53 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 17:28:31 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static void	prepend_stuff(t_flags *fl, t_intstuff *vars)
 			buf_prepend("0", &(fl->buf));
 		else if ((fl->fl_cv == 7 || fl->fl_cv == 8) && !(vars->is_zero))
 			buf_prepend("0X", &(fl->buf));
+		else if ((fl->fl_cv == 11) && !(vars->is_zero))
+			buf_prepend("0b", &(fl->buf));
 		if (!(fl->buf.str))
 			exit(1);
 	}

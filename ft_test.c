@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:53:23 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 16:20:43 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 17:17:54 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@ int		is_conv(char **pstr, t_flags *f)
 	{
 		f->fl_cv = 4;
 		return (1);
+	}
+	else if (**pstr == 'F')
+	{
+		f->fl_cv = 9;
 	}
 	s = ft_strchr(STR_CONV, **pstr);
 	if (s == NULL || *s == 0)

@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:27:03 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 15:03:31 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 17:11:09 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <wctype.h>
 # include <wchar.h>
 # define IS_NUM(x) (x >= '0' && x <= '9')
-# define STR_CONV "cspdouxXfF"
+# define STR_CONV "cspdouxXfFb"
 # define STR_FLAGS "#0+- "
 # define BUFFER_SIZE 1024
 
@@ -55,8 +55,9 @@ typedef struct	s_flags
 }				t_flags;
 
 int				ft_printf(const char *restrict format, ...);
-int				ft_printfd(int fd, const char *restrict format, ...);
-int				ft_printstr(char **str, const char *restrict format, ...);
+int				ft_dprintf(int fd, const char *restrict format, ...);
+int				ft_asprintf(char **ret, const char *restrict format, ...);
+int				ft_sprintf(char *str, const char *restrict format, ...);
 int				read_format(t_buf *pbuf, const char *str, va_list *ap);
 void			expand_buf(t_buf *pbuf);
 

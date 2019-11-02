@@ -6,17 +6,11 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 12:28:26 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 16:21:15 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 17:28:12 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void						pass_conv_flag(char **pstr, t_flags *fl)
-{
-	if (fl->fl_sc == 1 || fl->fl_sc == 4)
-		(*pstr)++;
-}
 
 int							ft_positive_atoi(char **pstr)
 {
@@ -68,18 +62,29 @@ static long long			get_llong(t_flags *fl, va_list *ap)
 		return (va_arg(*ap, int));
 }
 
-int							intval_to_buf(t_flags *fl, va_list *ap)
+static int					get_base(t_flags *fl)
 {
-	int					base;
-	unsigned long long	value;
+	int base;
 
 	base = 10;
 	if (fl->fl_cv == 5)
 		base = 8;
 	else if (fl->fl_cv == 7 || fl->fl_cv == 8)
 		base = 16;
+	else if (fl->fl_cv == 11)
+		base = 2;
+	return (base);
+}
+
+int							intval_to_buf(t_flags *fl, va_list *ap)
+{
+	int					base;
+	unsigned long long	value;
+
+	base = get_base(fl);
 	value = 0;
-	if (fl->fl_cv == 5 || fl->fl_cv == 6 || fl->fl_cv == 7 || fl->fl_cv == 8)
+	if (fl->fl_cv == 5 || fl->fl_cv == 6 || fl->fl_cv == 7 || fl->fl_cv == 8 
+		|| fl->fl_cv == 11)
 		value = get_ullong(fl, ap);
 	else
 	{

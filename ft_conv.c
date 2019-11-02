@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 16:13:48 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/11/02 16:22:03 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/11/02 17:17:25 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void		pf_convert(t_flags *fl, va_list *ap)
 		convert_char(fl, ap);
 	else if (fl->fl_cv == 4
 			|| fl->fl_cv == 5 || fl->fl_cv == 6
-			|| fl->fl_cv == 7 || fl->fl_cv == 8)
+			|| fl->fl_cv == 7 || fl->fl_cv == 8
+			|| fl->fl_cv == 11)
 		convert_int(fl, ap);
 	else if (fl->fl_cv == 9 || fl->fl_cv == 10)
 		convert_double(fl, ap);
